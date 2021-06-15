@@ -1,11 +1,17 @@
 import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { HomePage } from "../HomePage/HomePage";
 const axios = require("axios");
 const qs = require("qs");
-
 class LoginPage extends React.Component {
-  state = {};
   constructor(props) {
     super(props);
+    this.state = {
+      email: "",
+      password: "",
+      redirect: false,
+      wrongPassword: false,
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -16,8 +22,8 @@ class LoginPage extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    const {email,password} = this.state;
-  
+    const { email, password } = this.state;
+
     var data = qs.stringify({
       email: email,
       password: password,
@@ -33,18 +39,46 @@ class LoginPage extends React.Component {
 
     axios(config)
       .then(function (response) {
-        if(response.status === 200){
-          console.log(response.data.data.token);
-          localStorage.setItem("auth-token", response.data.data.token);
-        }
-
+        return response.data;
       })
-      .catch(function (error) {
-        console.log(error);
+      .then((response) => {
+        if (response.status === 200) {
+          localStorage.setItem("auth-token", response.data.token);
+          this.setState({
+            redirect: true,
+          });
+        }
+        if(response.status === 200) {
+          console.log("abc")
+        }
+        console.log(response);
+      })
+      .catch((err) => {
+        if(err.response.data.status === 400){
+          this.setState({
+            wrongPassword: true
+          })
+        }
       });
   }
 
   render() {
+    const colorRed = {
+      color: "red",
+      transition: "2s"
+    };
+    const wrong = (
+      <p className="text-center color-red" style={colorRed}>
+        Bạn sai tài khoản hoặc mật khẩu
+      </p>
+    );
+    const wrongPassword = this.state.wrongPassword ? wrong : "";
+    if(localStorage.getItem("auth-token")){
+      return <Redirect to="/homepage" />;
+    }
+    if (this.state.redirect === true) {
+      return <Redirect to="/homepage" />;
+    }
     return (
       <div className="page-content page-login">
         <div className="page-inner">
@@ -54,11 +88,7 @@ class LoginPage extends React.Component {
                 <div className="panel panel-white" id="js-alerts">
                   <div className="panel-body">
                     <div className="login-box">
-                      <h2
-                        className="text-lg text-center m-t-xs"
-                      >
-                        BOOK STORE
-                      </h2>
+                      <h2 className="text-lg text-center m-t-xs">BOOK STORE</h2>
                       <p className="text-center m-t-md">
                         Vui lòng nhập email & mật khẩu
                         <br></br> để đăng nhập
@@ -84,6 +114,8 @@ class LoginPage extends React.Component {
                             required
                           />
                         </div>
+                        {wrongPassword}
+
                         <button
                           type="submit"
                           className="btn btn-success btn-block"
