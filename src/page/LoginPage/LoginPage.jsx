@@ -118,7 +118,7 @@ class LoginPage extends React.Component {
 
                         <button
                           type="submit"
-                          className="btn btn-success btn-block"
+                          className="btn btn-login btn-block"
                         >
                           Đăng nhập
                         </button>

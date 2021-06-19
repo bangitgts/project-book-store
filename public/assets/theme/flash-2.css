@@ -969,15 +969,15 @@ h5 {
 .btn-info:active,
 .btn-primary.active,
 .btn-primary:active,
-.btn-success.active,
-.btn-success:active,
+.btn-login.active,
+.btn-login:active,
 .btn-warning.active,
 .btn-warning:active,
 .open>.dropdown-toggle.btn-danger,
 .open>.dropdown-toggle.btn-default,
 .open>.dropdown-toggle.btn-info,
 .open>.dropdown-toggle.btn-primary,
-.open>.dropdown-toggle.btn-success,
+.open>.dropdown-toggle.btn-login,
 .open>.dropdown-toggle.btn-warning {
     background-image: none
 }
@@ -1160,27 +1160,27 @@ fieldset[disabled] .btn-primary:hover {
     background-color: #fff
 }
 
-.btn-success {
+.btn-login {
     color: #fff;
     background-color: #D95B35;
     border-radius: 0px;
 }
 
-.btn-success.active,
-.btn-success.active.focus,
-.btn-success.active:focus,
-.btn-success.active:hover,
-.btn-success.focus,
-.btn-success:active,
-.btn-success:active.focus,
-.btn-success:active:focus,
-.btn-success:active:hover,
-.btn-success:focus,
-.btn-success:hover,
-.open>.dropdown-toggle.btn-success,
-.open>.dropdown-toggle.btn-success.focus,
-.open>.dropdown-toggle.btn-success:focus,
-.open>.dropdown-toggle.btn-success:hover {
+.btn-login.active,
+.btn-login.active.focus,
+.btn-login.active:focus,
+.btn-login.active:hover,
+.btn-login.focus,
+.btn-login:active,
+.btn-login:active.focus,
+.btn-login:active:focus,
+.btn-login:active:hover,
+.btn-login:focus,
+.btn-login:hover,
+.open>.dropdown-toggle.btn-login,
+.open>.dropdown-toggle.btn-login.focus,
+.open>.dropdown-toggle.btn-login:focus,
+.open>.dropdown-toggle.btn-login:hover {
     /* color: #fff;
     opacity: .8;
     border-color: transparent */
@@ -1189,29 +1189,29 @@ fieldset[disabled] .btn-primary:hover {
     border: 1px solid #D95B35;
 }
 
-.btn-success.disabled,
-.btn-success.disabled.active,
-.btn-success.disabled.focus,
-.btn-success.disabled:active,
-.btn-success.disabled:focus,
-.btn-success.disabled:hover,
-.btn-success[disabled],
-.btn-success[disabled].active,
-.btn-success[disabled].focus,
-.btn-success[disabled]:active,
-.btn-success[disabled]:focus,
-.btn-success[disabled]:hover,
-fieldset[disabled] .btn-success,
-fieldset[disabled] .btn-success.active,
-fieldset[disabled] .btn-success.focus,
-fieldset[disabled] .btn-success:active,
-fieldset[disabled] .btn-success:focus,
-fieldset[disabled] .btn-success:hover {
+.btn-login.disabled,
+.btn-login.disabled.active,
+.btn-login.disabled.focus,
+.btn-login.disabled:active,
+.btn-login.disabled:focus,
+.btn-login.disabled:hover,
+.btn-login[disabled],
+.btn-login[disabled].active,
+.btn-login[disabled].focus,
+.btn-login[disabled]:active,
+.btn-login[disabled]:focus,
+.btn-login[disabled]:hover,
+fieldset[disabled] .btn-login,
+fieldset[disabled] .btn-login.active,
+fieldset[disabled] .btn-login.focus,
+fieldset[disabled] .btn-login:active,
+fieldset[disabled] .btn-login:focus,
+fieldset[disabled] .btn-login:hover {
     color: #D95B35;
     background: white;
 }
 
-.btn-success .badge {
+.btn-login .badge {
     color: #1DB198;
     background-color: #fff
 }

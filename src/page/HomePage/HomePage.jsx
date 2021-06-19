@@ -2,7 +2,6 @@ import React from "react";
 import { Header } from "../Header";
 import { Search } from "../Search";
 import { ListBook } from "../../components/ListBook";
-const axios = require("axios");
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -10,23 +9,6 @@ class HomePage extends React.Component {
       data: [],
       auth: false,
     };
-  }
-  componentDidMount() {
-    var config = {
-      method: "get",
-      url: "http://45.77.12.16:4000/account/",
-      headers: {
-        "auth-token": localStorage.getItem("auth-token"),
-      },
-    };
-
-    axios(config)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   }
 
   render() {
@@ -53,7 +35,7 @@ class HomePage extends React.Component {
 
               <div className="col-sm-12 padding-right">
                 {/* ListBOOK */}
-                <ListBook/>
+                <ListBook />
                 <div className="recommended_items">
                   {/*recommended_items*/}
                   <h2 className="title text-center">Recommended Books</h2>
