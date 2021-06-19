@@ -849,6 +849,10 @@ h2.title {
     right: 0;
 }
 
+.productinfo {
+    height: 490px;
+}
+
 .productinfo h2 {
     color: #FE980F;
     font-family: 'Roboto', sans-serif;
