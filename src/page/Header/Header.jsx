@@ -1,5 +1,4 @@
 import React from "react";
-const axios = require("axios");
 class Header extends React.Component {
   render() {
     return (

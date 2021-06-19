@@ -1,7 +1,9 @@
 import React from "react";
-const axios = require("axios");
+
 // eslint-disable-next-line import/first
-import { Header } from "../Header/"
+import { Header } from "../Header";
+import { Search } from "../Search";
+const axios = require("axios");
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -48,34 +50,7 @@ class HomePage extends React.Component {
                   Online book's store
                 </h1>
               </div>
-              <div className="s131">
-                <form>
-                  <div className="inner-form">
-                    <div className="input-field first-wrap">
-                      <input
-                        id="search"
-                        type="text"
-                        placeholder="What book are you looking for?"
-                      />
-                    </div>
-                    <div className="input-field second-wrap">
-                      <div className="input-select">
-                        <select data-trigger name="choices-single-defaul">
-                          <option placeholder>All Category</option>
-                          <option>Loại 1 </option>
-                          <option>Loại 2</option>
-                          <option>Loại 3</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="input-field third-wrap">
-                      <button className="btn-search" type="button">
-                        Search
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+              <Search/>
               <div className="col-sm-12 padding-right">
                 <div className="features_items">
                   {/*features_items*/}
