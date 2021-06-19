@@ -1,6 +1,23 @@
 import React from "react";
+const axios = require("axios");
 
 class ListBook extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
+  componentDidMount() {
+    var config = {
+      method: "get",
+      url: "http://45.77.12.16:4000/product",
+   
+    };
+
+    axios(config)
+     .then(req => console.log(req.data))
+  }
   render() {
     return (
       <div className="features_items">
