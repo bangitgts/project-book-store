@@ -3,6 +3,7 @@ import { Component } from "react";
 import { routes } from "./routes";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { PrivateRoute } from "./auth";
+import { ProductDetail } from "./page/ProductDetail";
 import { HomePage } from "./page/HomePage";
 var axios = require("axios");
 class App extends Component {
@@ -51,13 +52,15 @@ class App extends Component {
     return result;
   }
   render() {
-    const { authed } = this.state;
+    // const { authed } = this.state;
     return (
       <Router>
+        
         {" "}
         {this.showContent(routes)}{" "}
-        <PrivateRoute authed path="/homepage" component={HomePage} />{" "}
+        <PrivateRoute authed path="/homepage" component={HomePage} />{" "}{" "}
       </Router>
+    
     );
   }
 }

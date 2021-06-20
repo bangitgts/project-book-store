@@ -19,18 +19,6 @@ class ProductDetail extends React.Component {
                         alt=""
                       />
                     </div>
-                    <div className="text-center">
-                      <iframe
-                        src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=large&width=87&height=28&appId"
-                        width={87}
-                        height={28}
-                        style={{ border: "none", overflow: "hidden" }}
-                        scrolling="no"
-                        frameBorder={0}
-                        allowFullScreen="true"
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      />
-                    </div>
                   </div>
                   <div className="col-sm-7">
                     <div className="product-information">

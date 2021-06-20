@@ -8,7 +8,7 @@ const routes = [{
         main: () => < HomePage / > ,
     },
     {
-        path: "/product",
+        path: "/product/:id",
         exact: false,
         main: () => < ProductDetail / > ,
     }, {
