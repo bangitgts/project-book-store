@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { HomePage } from "../HomePage/HomePage";
+
 const axios = require("axios");
 const qs = require("qs");
 class LoginPage extends React.Component {

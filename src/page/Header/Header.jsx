@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { HeaderTop } from "../HeaderTop";
+import { Link } from "react-router-dom"
 class Header extends React.Component {
   render() {
     return (
@@ -66,7 +67,7 @@ class Header extends React.Component {
                           <a href="cart.html">Cart</a>
                         </li>
                         <li>
-                          <a href="login">Login</a>
+                          <Link to="/login">Login</Link>
                         </li>
                       </ul>
                     </li>
@@ -86,9 +87,9 @@ class Header extends React.Component {
                             <a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a>
                         </li> */}
                     <li>
-                      <a href="login">
-                        <i className="fa fa-lock" /> Login/Register
-                      </a>
+                      <Link to="/login">
+                        <i className="fa fa-lock"/> Login/Register
+                      </Link>
                     </li>
                   </ul>
                 </div>

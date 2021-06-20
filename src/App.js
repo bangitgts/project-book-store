@@ -26,15 +26,15 @@ class App extends Component {
     fetch("http://45.77.12.16:4000/account/", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        if(result.status === 200){
+        if (result.status === 200) {
           this.setState({
-            authed: false
-          })
+            authed: false,
+          });
         }
-        if(result.status ===400){
+        if (result.status === 400) {
           this.setState({
-            authed:false
-          })
+            authed: false,
+          });
         }
       })
       .catch((error) => console.log("error", error));
@@ -56,7 +56,7 @@ class App extends Component {
       <Router>
         {" "}
         {this.showContent(routes)}{" "}
-        <PrivateRoute authed path="/homepage" component={HomePage} />
+        <PrivateRoute authed path="/homepage" component={HomePage} />{" "}
       </Router>
     );
   }

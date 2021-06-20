@@ -27,15 +27,15 @@ class ListBook extends React.Component {
   render() {
     const { data } = this.state;
     const dataList = data.map((data) => {
+      const url = `product/${data._id}`;
       return (
         <div className="col-xs-6 col-sm-3 col-md-3 col-lg-3 ">
+          <Link to={url}>
           <div className="product-image-wrapper">
             <div className="single-products">
               <div className="productinfo">
-                <div className="product-background text-center">
-                  <Link to="/login">
+                <div className="product-background text-center">                  
                     <img className="text-center" src={data.urlImage} alt="" />
-                  </Link>
                 </div>
                 <h4 className="pdl-5">{data.tenSach}</h4>
                 <p className="pdl-5">Tác giả: {data.tacGia}</p>
@@ -45,6 +45,7 @@ class ListBook extends React.Component {
               </div>
             </div>
           </div>
+          </Link>
         </div>
       );
     });
