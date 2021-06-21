@@ -1,32 +1,77 @@
 import React from "react";
-import { Header } from "../Header"
+import { Header } from "../Header";
+var axios = require("axios");
+
 class ProductDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {},
+      countProduct: 1
+    };
+  }
+  componentDidMount() {
+    const _id = this.props.match.params.id;
+    const url = "http://45.77.12.16:4000/product/";
+    const urlFull = url + _id;
+    var config = {
+      method: "get",
+      url: urlFull,
+    };
+
+    axios(config)
+      .then(function (response) {
+        return response.data.data;
+      })
+      .then((data) => {
+        this.setState({
+          data: data,
+        });
+        console.log(this.state);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  refresh = () => {
+    window.location.reload();
+  };
   render() {
+    const maska = "jkaskask</br>askasklklas"
+    const { data } = this.state;
     return (
       <div>
         {/*header*/}
-        <Header/>
+        <Header />
         <section>
           <div className="container">
+            <nav>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="#">Products</a>
+                </li>
+                <li class="breadcrumb-item active">Accessories</li>
+              </ol>
+            </nav>
             <div className="row">
               <div className="col-sm-12 padding-right">
                 <div className="product-details">
                   {/*product-details*/}
                   <div className="col-sm-5">
                     <div className="view-product">
-                      <img
-                        src="http://skybooks.vn/wp-content/themes/skybooks/thumb.php?src=/wp-content/uploads/2021/06/t%E1%BA%A3i-xu%E1%BB%91ng.jpg&w=226&h=366&q=100"
-                        alt=""
-                      />
+                      <img src={data.urlImage} alt="" />
                     </div>
                   </div>
                   <div className="col-sm-7">
                     <div className="product-information">
-                      <h2>LÚC NÀO CŨNG LÀ QUÁ MUỘN ( TÁI BẢN )</h2>
+                      <h2>{data.tenSach}</h2>
                       <img src="images/product-details/rating.png" alt="" />
                       <span>| 2460 Đánh giá</span>
                       <div className="gia-bia">
-                        <h3>92,000 ₫</h3>
+                        <h3>{data.giaBia} ₫</h3>
                       </div>
                       <p>Ngày xuất bản: 05-2021</p>
                       <p>Loại bìa: bìa mềm</p>
@@ -42,12 +87,16 @@ class ProductDetail extends React.Component {
                           -
                         </button>
                         <input
-                          type="text"
+                          type="number"
+                          min="0"
+                          step="1"
+                          max="5"
+                          style={{ height: "33px",width:"70px" }}
                           className="btn btn-default"
-                          defaultValue={1}
+                          defaultValue={this.state.countProduct}
                         />
                         <button
-                          style={{ height: "33px" }}
+                          style={{ height: "33px"}}
                           type="button"
                           className="btn btn-default"
                         >
@@ -99,79 +148,10 @@ class ProductDetail extends React.Component {
                     </ul>
                   </div>
                   <div className="tab-content">
-                    <div className="tab-pane fade" id="details">
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery1.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery2.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery3.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery4.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="tab-pane fade active in" id="details">
+                      <p>
+                      {maska}
+                      </p>
                     </div>
                     <div className="tab-pane fade" id="companyprofile">
                       <div className="col-sm-3">
@@ -321,7 +301,7 @@ class ProductDetail extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div className="tab-pane fade active in" id="reviews">
+                    <div className="tab-pane" id="reviews">
                       <div className="col-sm-12">
                         <ul>
                           <li>
@@ -518,7 +498,9 @@ class ProductDetail extends React.Component {
             </div>
           </div>
         </section>
-        <footer id="footer"></footer>
+        <footer id="footer">
+          
+        </footer>
       </div>
     );
   }

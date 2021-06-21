@@ -18,6 +18,17 @@ class HomePage extends React.Component {
         {/*/header*/}
         <section>
           <div className="container">
+            <nav>
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <a href="#">Home</a>
+                </li>
+                <li className="breadcrumb-item active">
+                  <a href="#">Products</a>
+                </li>
+               
+              </ol>
+            </nav>
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h1

@@ -10,7 +10,8 @@ const routes = [{
     {
         path: "/product/:id",
         exact: false,
-        main: () => < ProductDetail / > ,
+        main: ({ match }) => < ProductDetail match = { match }
+        / > ,
     }, {
         path: "/login",
         exact: false,
