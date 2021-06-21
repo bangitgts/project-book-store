@@ -8,7 +8,7 @@ class Header extends React.Component {
     super(props);
     this.state = {
       auth: false,
-      data:{}
+      data: {},
     };
     this.logOut = this.logOut.bind(this);
   }
@@ -26,8 +26,7 @@ class Header extends React.Component {
       .then((response) => {
         return response.data;
       })
-      .then((data) => this.setState({ auth: true,
-      data :data }))
+      .then((data) => this.setState({ auth: true, data: data }))
       .catch(function (error) {});
   }
   logOut() {
@@ -35,12 +34,12 @@ class Header extends React.Component {
     window.location = "#";
   }
   render() {
-    
     const authLoginregister = this.state.auth ? (
       <li className="dropdown">
         <a href="#">
+          <i className="fa fa-user" />
+          <span> </span>
           {this.state.data.data.email}
-          <i className="fa fa-angle-down" />
         </a>
         <ul role="menu" className="sub-menu">
           <li>
@@ -50,7 +49,7 @@ class Header extends React.Component {
             <a href="checkout.html">Sửa Mật Khẩu</a>
           </li>
           <li>
-            <a onClick={()=>this.logOut()} href="#">
+            <a onClick={() => this.logOut()} href="#">
               Logout
             </a>
           </li>

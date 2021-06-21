@@ -7,9 +7,10 @@ class ProductDetail extends React.Component {
     super(props);
     this.state = {
       data: {},
-      countProduct: 1
+      countProduct: 1,
     };
   }
+
   componentDidMount() {
     const _id = this.props.match.params.id;
     const url = "http://45.77.12.16:4000/product/";
@@ -37,7 +38,9 @@ class ProductDetail extends React.Component {
     window.location.reload();
   };
   render() {
-    const maska = "jkaskask</br>askasklklas"
+    
+
+    const maska = "jkaskask</br>askasklklas";
     const { data } = this.state;
     return (
       <div>
@@ -91,12 +94,12 @@ class ProductDetail extends React.Component {
                           min="0"
                           step="1"
                           max="5"
-                          style={{ height: "33px",width:"70px" }}
+                          style={{ height: "33px", width: "70px" }}
                           className="btn btn-default"
                           defaultValue={this.state.countProduct}
                         />
                         <button
-                          style={{ height: "33px"}}
+                          style={{ height: "33px" }}
                           type="button"
                           className="btn btn-default"
                         >
@@ -149,9 +152,7 @@ class ProductDetail extends React.Component {
                   </div>
                   <div className="tab-content">
                     <div className="tab-pane fade active in" id="details">
-                      <p>
-                      {maska}
-                      </p>
+                      <p>{maska}</p>
                     </div>
                     <div className="tab-pane fade" id="companyprofile">
                       <div className="col-sm-3">
@@ -498,9 +499,7 @@ class ProductDetail extends React.Component {
             </div>
           </div>
         </section>
-        <footer id="footer">
-          
-        </footer>
+        <footer id="footer"></footer>
       </div>
     );
   }

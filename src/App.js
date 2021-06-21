@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { PrivateRoute } from "./auth";
 import { ProductDetail } from "./page/ProductDetail";
 import { HomePage } from "./page/HomePage";
+import ScrollToTop from "./scrolltotop";
 var axios = require("axios");
 class App extends Component {
   state = {
@@ -55,12 +56,9 @@ class App extends Component {
     // const { authed } = this.state;
     return (
       <Router>
-        
-        {" "}
-        {this.showContent(routes)}{" "}
-        <PrivateRoute authed path="/homepage" component={HomePage} />{" "}{" "}
+        <ScrollToTop /> {this.showContent(routes)}{" "}
+        <PrivateRoute authed path="/homepage" component={HomePage} />{" "}
       </Router>
-    
     );
   }
 }
