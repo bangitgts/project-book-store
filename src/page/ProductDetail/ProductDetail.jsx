@@ -53,7 +53,7 @@ class ProductDetail extends React.Component {
                 <li class="breadcrumb-item">
                   <a href="#">Products</a>
                 </li>
-                <li class="breadcrumb-item active">Accessories</li>
+                <li class="breadcrumb-item active">Phòng Kín Nhốt Cá</li>
               </ol>
             </nav>
             <div className="row">

@@ -2,16 +2,18 @@ import React from "react";
 import { Header } from "../Header";
 import { Search } from "../Search";
 import { ListBook } from "../../components/ListBook";
+import { Redirect } from "react-router-dom";
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      auth: false,
     };
   }
-
+  
   render() {
+
     return (
       <div>
         <Header />
@@ -26,7 +28,6 @@ class HomePage extends React.Component {
                 <li className="breadcrumb-item active">
                   <a href="#">Products</a>
                 </li>
-               
               </ol>
             </nav>
             <div className="row">

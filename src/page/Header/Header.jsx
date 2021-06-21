@@ -1,13 +1,72 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { HeaderTop } from "../HeaderTop";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+var axios = require("axios");
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      auth: false,
+      data:{}
+    };
+    this.logOut = this.logOut.bind(this);
+  }
+
+  componentDidMount() {
+    var config = {
+      method: "get",
+      url: " http://45.77.12.16:4000/account/",
+      headers: {
+        "auth-token": localStorage.getItem("auth-token"),
+      },
+    };
+
+    axios(config)
+      .then((response) => {
+        return response.data;
+      })
+      .then((data) => this.setState({ auth: true,
+      data :data }))
+      .catch(function (error) {});
+  }
+  logOut() {
+    localStorage.removeItem("auth-token");
+    window.location = "#";
+  }
   render() {
+    
+    const authLoginregister = this.state.auth ? (
+      <li className="dropdown">
+        <a href="#">
+          {this.state.data.data.email}
+          <i className="fa fa-angle-down" />
+        </a>
+        <ul role="menu" className="sub-menu">
+          <li>
+            <a href="shop.html">Thông Tin</a>
+          </li>
+          <li>
+            <a href="checkout.html">Sửa Mật Khẩu</a>
+          </li>
+          <li>
+            <a onClick={()=>this.logOut()} href="#">
+              Logout
+            </a>
+          </li>
+        </ul>
+      </li>
+    ) : (
+      <li>
+        <Link to="/login">
+          <i className="fa fa-lock" /> Login or Register
+        </Link>
+      </li>
+    );
     return (
       <header id="header">
         {/*header*/}
-        <HeaderTop/>
+        <HeaderTop />
         {/*/header_top*/}
         <div className="header-middle">
           {/*header-middle*/}
@@ -76,7 +135,7 @@ class Header extends React.Component {
                     </li>
                   </ul>
                 </div>
-                <div className="shop-menu pull-right">
+                <div className="mainmenu pull-right">
                   <ul className="nav navbar-nav">
                     {/* <li><a href="#"><i class="fa fa-user"></i> Account</a></li> */}
                     {/* <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> */}
@@ -86,11 +145,8 @@ class Header extends React.Component {
                     {/* <li>
                             <a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a>
                         </li> */}
-                    <li>
-                      <Link to="/login">
-                        <i className="fa fa-lock"/> Login/Register
-                      </Link>
-                    </li>
+
+                    {authLoginregister}
                   </ul>
                 </div>
               </div>
