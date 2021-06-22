@@ -1,5 +1,9 @@
 import React from "react";
-import Counters from "../../components/Counters/counters";
+import Alert from "@material-ui/lab/Alert";
+import IconButton from "@material-ui/core/IconButton";
+import Collapse from "@material-ui/core/Collapse";
+import Button from "@material-ui/core/Button";
+import CloseIcon from "@material-ui/icons/Close";
 import { Header } from "../Header";
 var axios = require("axios");
 
@@ -9,10 +13,11 @@ class ProductDetail extends React.Component {
     this.state = {
       data: {},
       countProduct: 1,
+      isLogin: "",
     };
     this.tang = this.tang.bind(this);
     this.giam = this.giam.bind(this);
-
+    this.onSubmit = this.onSubmit.bind(this);
   }
   tang() {
     const count = this.state.countProduct;
@@ -21,6 +26,9 @@ class ProductDetail extends React.Component {
         countProduct: count + 1,
       });
     }
+    this.setState({
+      isLogin: "1",
+    });
   }
   giam() {
     const count = this.state.countProduct;
@@ -29,7 +37,26 @@ class ProductDetail extends React.Component {
         countProduct: count - 1,
       });
     }
+    this.setState({
+      isLogin: "1",
+    });
   }
+
+  onSubmit() {
+    if (localStorage.getItem("auth-token") === null) {
+      this.setState({
+        isLogin: false,
+      });
+    } else {
+      this.setState({
+        isLogin: true,
+      });
+      console.log("abc");
+    }
+  }
+  onGetlogin = (e) => {
+    console.log("DDAY LA" + e);
+  };
   componentDidMount() {
     const url = "http://45.77.12.16:4000/product/show/";
     const id = this.props.match.params.id;
@@ -57,14 +84,15 @@ class ProductDetail extends React.Component {
   refresh = () => {
     window.location.reload();
   };
+
   render() {
     const maska = "jkaskask</br>askasklklas";
-    const state5 = this.state.countProduct === 5 ? "Số lượng đặt tối ta là 5":"";
+    const state5 =
+      this.state.countProduct === 5 ? "  Số lượng đặt max là 5" : "";
     const { data } = this.state;
+    console.log(this.props.match.params.id);
     return (
-      
       <div>
-        
         {/*header*/}
         <Header />
         <section>
@@ -101,7 +129,7 @@ class ProductDetail extends React.Component {
                       <p>Loại bìa: bìa mềm</p>
                       <p>Kích thước: 11 x 18 cm</p>
                       <p>Số trang: 152</p>
-                      <span>Số Lượng Mua</span>
+                      <p>Số Lượng Mua:</p>
                       <div className="a">
                         <button onClick={this.tang} className="button-decrease">
                           +
@@ -116,7 +144,19 @@ class ProductDetail extends React.Component {
                       </div>
 
                       <div>
-                        <button className="cart">
+                        {this.state.isLogin === false ? (
+                          <Alert severity="error">
+                            Bạn chưa đăng nhập. Vui lòng đăng nhập để mua hàng
+                          </Alert>
+                        ) : this.state.isLogin === true ? (
+                          <Alert severity="success">
+                            Thêm hàng vào giỏ thành công
+                          </Alert>
+                        ) : (
+                          ""
+                        )}
+
+                        <button className="cart" onClick={this.onSubmit}>
                           <i className="fa fa-shopping-cart" /> Thêm vào giỏ
                           hàng
                         </button>

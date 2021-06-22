@@ -26,8 +26,12 @@ class Header extends React.Component {
       .then((response) => {
         return response.data;
       })
-      .then((data) => this.setState({ auth: true, data: data }))
+      .then((data) => {
+        this.setState({ auth: true, data: data });
+      })
       .catch(function (error) {});
+      console.log(this.props.onGetlogin)
+  
   }
   logOut() {
     localStorage.removeItem("auth-token");

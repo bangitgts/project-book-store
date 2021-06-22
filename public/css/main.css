@@ -2492,3 +2492,7 @@ textarea {
     color: black;
     padding: 5px;
 }
+
+.MuiAlert-message {
+    font-size: 15px;
+}
