@@ -35,32 +35,41 @@ class Header extends React.Component {
   }
   render() {
     const authLoginregister = this.state.auth ? (
-      <li className="dropdown">
-        <a href="#">
-          <i className="fa fa-user" />
-          <span> </span>
-          {this.state.data.data.email}
-        </a>
-        <ul role="menu" className="sub-menu">
-          <li>
-            <a href="shop.html">Thông Tin</a>
-          </li>
-          <li>
-            <a href="checkout.html">Sửa Mật Khẩu</a>
-          </li>
-          <li>
-            <a onClick={() => this.logOut()} href="#">
-              Logout
-            </a>
-          </li>
-        </ul>
-      </li>
+      <ul className="nav navbar-nav pull-right">
+        <li>
+          <a href="#">
+            <i className="fa fa-shopping-cart" /> Cart
+          </a>
+        </li>
+        <li className="dropdown">
+          <a href="#">
+            <i className="fa fa-user" />
+            <span> </span>
+            {this.state.data.data.email}
+          </a>
+          <ul role="menu" className="sub-menu">
+            <li>
+              <a href="shop.html">Thông Tin</a>
+            </li>
+            <li>
+              <a href="checkout.html">Sửa Mật Khẩu</a>
+            </li>
+            <li>
+              <a onClick={() => this.logOut()} href="#">
+                Logout
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     ) : (
-      <li>
-        <Link to="/login">
-          <i className="fa fa-lock" /> Login or Register
-        </Link>
-      </li>
+      <ul className="nav navbar-nav pull-right">
+        <li>
+          <Link to="/login">
+            <i className="fa fa-lock" /> Login or Register
+          </Link>
+        </li>
+      </ul>
     );
     return (
       <header id="header">
@@ -134,19 +143,17 @@ class Header extends React.Component {
                     </li>
                   </ul>
                 </div>
-                <div className="mainmenu pull-right">
-                  <ul className="nav navbar-nav">
-                    {/* <li><a href="#"><i class="fa fa-user"></i> Account</a></li> */}
-                    {/* <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> */}
-                    {/* <li>
+                <div className="mainmenu">
+                  {/* <li><a href="#"><i class="fa fa-user"></i> Account</a></li> */}
+                  {/* <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> */}
+                  {/* <li>
                             <a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a>
                         </li> */}
-                    {/* <li>
+                  {/* <li>
                             <a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a>
                         </li> */}
 
-                    {authLoginregister}
-                  </ul>
+                  {authLoginregister}
                 </div>
               </div>
             </div>

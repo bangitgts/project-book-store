@@ -1,4 +1,5 @@
 import React from "react";
+import Counters from "../../components/Counters/counters";
 import { Header } from "../Header";
 var axios = require("axios");
 
@@ -9,12 +10,31 @@ class ProductDetail extends React.Component {
       data: {},
       countProduct: 1,
     };
-  }
+    this.tang = this.tang.bind(this);
+    this.giam = this.giam.bind(this);
 
+  }
+  tang() {
+    const count = this.state.countProduct;
+    if (count < 5) {
+      this.setState({
+        countProduct: count + 1,
+      });
+    }
+  }
+  giam() {
+    const count = this.state.countProduct;
+    if (count <= 5 && count > 1) {
+      this.setState({
+        countProduct: count - 1,
+      });
+    }
+  }
   componentDidMount() {
-    const _id = this.props.match.params.id;
-    const url = "http://45.77.12.16:4000/product/";
-    const urlFull = url + _id;
+    const url = "http://45.77.12.16:4000/product/show/";
+    const id = this.props.match.params.id;
+    const urlFull = url + id;
+
     var config = {
       method: "get",
       url: urlFull,
@@ -38,12 +58,13 @@ class ProductDetail extends React.Component {
     window.location.reload();
   };
   render() {
-    
-
     const maska = "jkaskask</br>askasklklas";
+    const state5 = this.state.countProduct === 5 ? "Số lượng đặt tối ta là 5":"";
     const { data } = this.state;
     return (
+      
       <div>
+        
         {/*header*/}
         <Header />
         <section>
@@ -80,32 +101,20 @@ class ProductDetail extends React.Component {
                       <p>Loại bìa: bìa mềm</p>
                       <p>Kích thước: 11 x 18 cm</p>
                       <p>Số trang: 152</p>
-                      <span>Số Lượng</span>
-                      <span>
-                        <button
-                          style={{ height: "33px" }}
-                          type="button"
-                          className="btn btn-default"
-                        >
-                          -
-                        </button>
-                        <input
-                          type="number"
-                          min="0"
-                          step="1"
-                          max="5"
-                          style={{ height: "33px", width: "70px" }}
-                          className="btn btn-default"
-                          defaultValue={this.state.countProduct}
-                        />
-                        <button
-                          style={{ height: "33px" }}
-                          type="button"
-                          className="btn btn-default"
-                        >
+                      <span>Số Lượng Mua</span>
+                      <div className="a">
+                        <button onClick={this.tang} className="button-decrease">
                           +
                         </button>
-                      </span>
+                        <span className="button-span text-center">
+                          {this.state.countProduct}
+                        </span>
+                        <button onClick={this.giam} className="button-decrease">
+                          -
+                        </button>
+                        <span className="text-center ">{state5}</span>
+                      </div>
+
                       <div>
                         <button className="cart">
                           <i className="fa fa-shopping-cart" /> Thêm vào giỏ

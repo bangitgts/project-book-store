@@ -2475,3 +2475,20 @@ textarea {
 .contact-info .social-networks ul li a:hover {
     color: #FE980F;
 }
+
+.button-decrease {
+    border: 1px solid black;
+    width: 31px;
+    font-size: 15px;
+    background: white;
+    color: black;
+    padding: 5px;
+}
+
+.button-span {
+    width: 25px;
+    font-size: 15px;
+    background: white;
+    color: black;
+    padding: 5px;
+}
