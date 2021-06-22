@@ -86,7 +86,7 @@ class ProductDetail extends React.Component {
   };
 
   render() {
-    const maska = "jkaskask</br>askasklklas";
+
     const state5 =
       this.state.countProduct === 5 ? "  Số lượng đặt max là 5" : "";
     const { data } = this.state;
