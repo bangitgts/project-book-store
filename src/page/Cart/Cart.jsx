@@ -2,10 +2,38 @@
 import React from "react";
 import { Header } from "../Header";
 class Cart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cartUser: [],
+    };
+  }
+  componentDidMount() {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "auth-token",
+      localStorage.getItem("auth-token")
+    );
+
+    var urlencoded = new URLSearchParams();
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow",
+    };
+
+    fetch("http://45.77.12.16:4000/product/cart", requestOptions)
+      .then((response) => response.json())
+      .then((result) => result.data)
+      .then(data=>console.log(data))
+      .catch((error) => console.log("error", error));
+  }
   render() {
     return (
       <div>
-        <Header />
+         <Header name="Sara"/>
         <section id="cart_items">
           <div className="container">
             <div className="breadcrumbs">
@@ -16,14 +44,13 @@ class Cart extends React.Component {
                 <li className="active">Shopping Cart</li>
               </ol>
             </div>
-            
-         
+
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 cart_info">
               <table className="table table-condensed">
                 <thead>
                   <tr className="cart_menu">
                     <td className="image"></td>
-                    <td className="description text-center">Tên Sách</td> 
+                    <td className="description text-center">Tên Sách</td>
                     <td className="price text-center">Giá</td>
                     <td className="quantity text-center">Số Lượng</td>
                     <td className="total text-center">Tổng Tiền</td>

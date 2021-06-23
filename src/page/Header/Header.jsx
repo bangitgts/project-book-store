@@ -38,11 +38,12 @@ class Header extends React.Component {
     window.location = "#";
   }
   render() {
+    console.log(this.props.name);
     const authLoginregister = this.state.auth ? (
       <ul className="nav navbar-nav pull-right">
         <li>
           <a href="#">
-            <i className="fa fa-shopping-cart" /> Cart
+            <i className="fa fa-shopping-cart" /> Cart ({this.props.cartSl})
           </a>
         </li>
         <li className="dropdown">

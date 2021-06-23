@@ -1,11 +1,9 @@
 import React from "react";
 import Alert from "@material-ui/lab/Alert";
-import IconButton from "@material-ui/core/IconButton";
-import Collapse from "@material-ui/core/Collapse";
-import Button from "@material-ui/core/Button";
-import CloseIcon from "@material-ui/icons/Close";
+
 import { Header } from "../Header";
-var axios = require("axios");
+const axios = require("axios");
+const qs = require("qs");
 
 class ProductDetail extends React.Component {
   constructor(props) {
@@ -51,7 +49,26 @@ class ProductDetail extends React.Component {
       this.setState({
         isLogin: true,
       });
-      console.log("abc");
+      var data = qs.stringify({
+        amount: this.state.countProduct,
+      });
+      var config = {
+        method: "post",
+        url: `http://45.77.12.16:4000/product/add/${this.props.match.params.id}`,
+        headers: {
+          "auth-token": localStorage.getItem("auth-token"),
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        data: data,
+      };
+
+      axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   }
   onGetlogin = (e) => {
@@ -61,7 +78,6 @@ class ProductDetail extends React.Component {
     const url = "http://45.77.12.16:4000/product/show/";
     const id = this.props.match.params.id;
     const urlFull = url + id;
-
     var config = {
       method: "get",
       url: urlFull,
@@ -75,7 +91,6 @@ class ProductDetail extends React.Component {
         this.setState({
           data: data,
         });
-        console.log(this.state);
       })
       .catch(function (error) {
         console.log(error);
@@ -86,15 +101,12 @@ class ProductDetail extends React.Component {
   };
 
   render() {
-
     const state5 =
-      this.state.countProduct === 5 ? "  Số lượng đặt max là 5" : "";
+      this.state.countProduct === 5 ? "  Số lượng đặt tối đa là 5" : "";
     const { data } = this.state;
-    console.log(this.props.match.params.id);
     return (
       <div>
-        {/*header*/}
-        <Header />
+        <Header name="Sara" />
         <section>
           <div className="container">
             <nav>
@@ -105,7 +117,9 @@ class ProductDetail extends React.Component {
                 <li class="breadcrumb-item">
                   <a href="#">Products</a>
                 </li>
-                <li class="breadcrumb-item active">Phòng Kín Nhốt Cá</li>
+                <li class="breadcrumb-item active">
+                  {this.state.data.tenSach}
+                </li>
               </ol>
             </nav>
             <div className="row">
@@ -116,12 +130,15 @@ class ProductDetail extends React.Component {
                     <div className="view-product">
                       <img src={data.urlImage} alt="" />
                     </div>
+                    <div>
+                      <p className="like-product text-center">
+                        <i class="fa fa-heart"></i> Đã Thích ({data.yeuThich})
+                      </p>
+                    </div>
                   </div>
                   <div className="col-sm-7">
                     <div className="product-information">
                       <h2>{data.tenSach}</h2>
-                      <img src="images/product-details/rating.png" alt="" />
-                      <span>| 2460 Đánh giá</span>
                       <div className="gia-bia">
                         <h3>{data.giaBia} ₫</h3>
                       </div>
@@ -161,13 +178,6 @@ class ProductDetail extends React.Component {
                           hàng
                         </button>
                       </div>
-                      <a href>
-                        <img
-                          src="images/product-details/share.png"
-                          className="share img-responsive"
-                          alt=""
-                        />
-                      </a>
                     </div>
                     {/*/product-information*/}
                   </div>
@@ -201,7 +211,7 @@ class ProductDetail extends React.Component {
                   </div>
                   <div className="tab-content">
                     <div className="tab-pane fade active in" id="details">
-                      <p>{maska}</p>
+                      {data.moTa}
                     </div>
                     <div className="tab-pane fade" id="companyprofile">
                       <div className="col-sm-3">
