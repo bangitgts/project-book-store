@@ -106,7 +106,7 @@ class ProductDetail extends React.Component {
     const { data } = this.state;
     return (
       <div>
-        <Header name="Sara" />
+        <Header/>
         <section>
           <div className="container">
             <nav>

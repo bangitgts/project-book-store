@@ -15,7 +15,7 @@ const routes = [{
         />,
     },
     {
-        path: "/cart-user",
+        path: "/checkout",
         exact: false,
         main: ({ match }) => < Cart match = { match }
         />,
