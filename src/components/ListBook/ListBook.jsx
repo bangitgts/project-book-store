@@ -3,6 +3,8 @@
 import React from "react";
 const axios = require("axios");
 import { Link } from "react-router-dom";
+import LinearProgress from '@material-ui/core/LinearProgress';
+
 class ListBook extends React.Component {
   constructor(props) {
     super(props);
@@ -49,10 +51,12 @@ class ListBook extends React.Component {
         </div>
       );
     });
+    const dataIs = data.length === 0 ? <LinearProgress color="secondary" /> : dataList;
     return (
       <div className="features_items">
         {/*features_items*/}
-        {dataList}
+        
+        {dataIs}
       </div>
     );
   }

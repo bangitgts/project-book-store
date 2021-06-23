@@ -35,10 +35,10 @@ class Header extends React.Component {
   }
   logOut() {
     localStorage.removeItem("auth-token");
-    window.location = "#";
+    window.location = "/";
   }
   render() {
-    console.log(this.props.name);
+
     const authLoginregister = this.state.auth ? (
       <ul className="nav navbar-nav pull-right">
         <li>
@@ -87,7 +87,7 @@ class Header extends React.Component {
             <div className="row">
               <div className="col-sm-2">
                 <div className="logo pull-left">
-                  <a href="index.html">
+                  <a href="/">
                     <img
                       style={{ height: "30px" }}
                       src="https://i1.wp.com/www.writefromscratch.com/wp-content/uploads/2018/12/demo-logo.png?ssl=1"

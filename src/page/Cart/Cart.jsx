@@ -23,12 +23,61 @@ class Cart extends React.Component {
 
     axios(config)
       .then((req) => req.data)
-      .then((data) => console.log(data))
+      .then((data) => data.cart)
+      .then((data) => {
+        this.setState({
+          cartUser: data,
+        });
+      })
       .catch(function (error) {
         console.log(error);
       });
   }
   render() {
+    const { cartUser } = this.state;
+
+    const dataCartlist = cartUser.map((data) => {
+      return (
+        <tr>
+          <td className="cart_product">
+            <a href>
+              <img src="" alt="" />
+            </a>
+          </td>
+          <td className="cart_description">
+            <h4>
+              <a href>{data.tenSach}</a>
+            </h4>
+            <p>Tác giả: {data.tacGia}</p>
+          </td>
+          <td className="cart_price">
+            <p>{parseInt(data.giaBia).toLocaleString()}</p>
+          </td>
+          <td className="cart_quantity">
+            <button onClick={this.tang} className="button-decrease">
+              +
+            </button>
+            <span className="button-span text-center">
+              {/* {this.state.countProduct} */}
+              {parseInt(data.amount)}
+            </span>
+            <button onClick={this.giam} className="button-decrease">
+              -
+            </button>
+          </td>
+          <td className="cart_total">
+            <p className="cart_total_price">
+              {(parseInt(data.giaBia) * parseInt(data.amount)).toLocaleString()}
+            </p>
+          </td>
+          <td className="cart_delete">
+            <a className="cart_quantity_delete" href>
+              <i className="fa fa-times" />
+            </a>
+          </td>
+        </tr>
+      );
+    });
     return (
       <div>
         <Header name="abc" />
@@ -55,136 +104,26 @@ class Cart extends React.Component {
                 </tr>
               </thead>
               <tbody>
+                {dataCartlist}
                 <tr>
                   <td className="cart_product">
                     <a href>
-                      <img src="images/cart/one.png" alt="" />
+                      <img src="" alt="" />
                     </a>
                   </td>
                   <td className="cart_description">
-                    <h4>
-                      <a href>Colorblock Scuba</a>
-                    </h4>
-                    <p>Web ID: 1089772</p>
+                    
                   </td>
                   <td className="cart_price">
-                    <p>$59</p>
+                   
                   </td>
-                  <td className="cart_quantity">
-                    <div className="cart_quantity_button">
-                      <a className="cart_quantity_up" href>
-                        {" "}
-                        +{" "}
-                      </a>
-                      <input
-                        className="cart_quantity_input"
-                        type="text"
-                        name="quantity"
-                        defaultValue={1}
-                        autoComplete="off"
-                        size={2}
-                      />
-                      <a className="cart_quantity_down" href>
-                        {" "}
-                        -{" "}
-                      </a>
-                    </div>
+                  <td className="cart_total_price">
+                  Tổng tiền
                   </td>
                   <td className="cart_total">
-                    <p className="cart_total_price">$59</p>
-                  </td>
-                  <td className="cart_delete">
-                    <a className="cart_quantity_delete" href>
-                      <i className="fa fa-times" />
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="cart_product">
-                    <a href>
-                      <img src="images/cart/two.png" alt="" />
-                    </a>
-                  </td>
-                  <td className="cart_description">
-                    <h4>
-                      <a href>Colorblock Scuba</a>
-                    </h4>
-                    <p>Web ID: 1089772</p>
-                  </td>
-                  <td className="cart_price">
-                    <p>$59</p>
-                  </td>
-                  <td className="cart_quantity">
-                    <div className="cart_quantity_button">
-                      <a className="cart_quantity_up" href>
-                        {" "}
-                        +{" "}
-                      </a>
-                      <input
-                        className="cart_quantity_input"
-                        type="text"
-                        name="quantity"
-                        defaultValue={1}
-                        autoComplete="off"
-                        size={2}
-                      />
-                      <a className="cart_quantity_down" href>
-                        {" "}
-                        -{" "}
-                      </a>
-                    </div>
-                  </td>
-                  <td className="cart_total">
-                    <p className="cart_total_price">$59</p>
-                  </td>
-                  <td className="cart_delete">
-                    <a className="cart_quantity_delete" href>
-                      <i className="fa fa-times" />
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="cart_product">
-                    <a href>
-                      <img src="images/cart/three.png" alt="" />
-                    </a>
-                  </td>
-                  <td className="cart_description">
-                    <h4>
-                      <a href>Colorblock Scuba</a>
-                    </h4>
-                    <p>Web ID: 1089772</p>
-                  </td>
-                  <td className="cart_price">
-                    <p>$59</p>
-                  </td>
-                  <td className="cart_quantity">
-                    <div className="cart_quantity_button">
-                      <a className="cart_quantity_up" href>
-                        {" "}
-                        +{" "}
-                      </a>
-                      <input
-                        className="cart_quantity_input"
-                        type="text"
-                        name="quantity"
-                        defaultValue={1}
-                        autoComplete="off"
-                        size={2}
-                      />
-                      <a className="cart_quantity_down" href>
-                        {" "}
-                        -{" "}
-                      </a>
-                    </div>
-                  </td>
-                  <td className="cart_total">
-                    <p className="cart_total_price">$59</p>
-                  </td>
-                  <td className="cart_delete">
-                    <a className="cart_quantity_delete" href>
-                      <i className="fa fa-times" />
-                    </a>
+                    <p className="cart_total_price">
+                        1,0000,0000 
+                    </p>
                   </td>
                 </tr>
               </tbody>

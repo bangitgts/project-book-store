@@ -6,6 +6,7 @@ import { PrivateRoute } from "./auth";
 import { ProductDetail } from "./page/ProductDetail";
 import { HomePage } from "./page/HomePage";
 import ScrollToTop from "./scrolltotop";
+import { Cart } from "./page/Cart";
 var axios = require("axios");
 class App extends Component {
   state = {
@@ -57,7 +58,7 @@ class App extends Component {
     return (
       <Router>
         <ScrollToTop /> {this.showContent(routes)}{" "}
-        <PrivateRoute authed path="/homepage" component={HomePage} />{" "}
+        <PrivateRoute exact authed path="/checkout" component={Cart} />{" "}
       </Router>
     );
   }

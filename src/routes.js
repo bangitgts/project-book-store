@@ -15,12 +15,6 @@ const routes = [{
         />,
     },
     {
-        path: "/checkout",
-        exact: false,
-        main: ({ match }) => < Cart match = { match }
-        />,
-    },
-    {
         path: "/login",
         exact: false,
         main: () => < LoginPage / > ,

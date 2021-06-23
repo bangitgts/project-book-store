@@ -1,6 +1,6 @@
 import React from "react";
 import Alert from "@material-ui/lab/Alert";
-
+import LinearProgress from '@material-ui/core/LinearProgress';
 import { Header } from "../Header";
 const axios = require("axios");
 const qs = require("qs");
@@ -104,6 +104,8 @@ class ProductDetail extends React.Component {
     const state5 =
       this.state.countProduct === 5 ? "  Số lượng đặt tối đa là 5" : "";
     const { data } = this.state;
+    
+    
     return (
       <div>
         <Header/>

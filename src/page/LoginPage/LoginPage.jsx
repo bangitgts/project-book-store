@@ -74,10 +74,10 @@ class LoginPage extends React.Component {
     );
     const wrongPassword = this.state.wrongPassword ? wrong : "";
     if(localStorage.getItem("auth-token")){
-      return <Redirect to="/homepage" />;
+      return <Redirect to="/" />;
     }
     if (this.state.redirect === true) {
-      return <Redirect to="/homepage" />;
+      return <Redirect to="/" />;
     }
     return (
       <div className="page-content page-login">

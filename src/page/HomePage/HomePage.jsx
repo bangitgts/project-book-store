@@ -3,7 +3,6 @@ import { Header } from "../Header";
 import { Search } from "../Search";
 import { ListBook } from "../../components/ListBook";
 import { Redirect } from "react-router-dom";
-
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +16,7 @@ class HomePage extends React.Component {
     return (
       <div>
         <Header />
+        
         {/*/header*/}
         <section>
           <div className="container">
