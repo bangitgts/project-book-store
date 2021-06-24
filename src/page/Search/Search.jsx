@@ -20,6 +20,10 @@ class Search extends React.Component {
                   <option>Loại 1 </option>
                   <option>Loại 2</option>
                   <option>Loại 3</option>
+                  <option>Loại 4</option>
+                  <option>Loại 5</option>
+                  <option>Loại 6</option>
+                  <option>Loại 7</option>
                 </select>
               </div>
             </div>

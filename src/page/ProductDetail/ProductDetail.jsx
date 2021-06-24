@@ -71,11 +71,9 @@ class ProductDetail extends React.Component {
         });
     }
   }
-  onGetlogin = (e) => {
-    console.log("DDAY LA" + e);
-  };
+
   componentDidMount() {
-    const url = "http://45.77.12.16:4000/product/show/";
+    const url = "http://localhost:3000/product/show/";
     const id = this.props.match.params.id;
     const urlFull = url + id;
     var config = {
@@ -88,6 +86,7 @@ class ProductDetail extends React.Component {
         return response.data.data;
       })
       .then((data) => {
+        console.log(String(data.moTa).split('\n'));
         this.setState({
           data: data,
         });
@@ -104,8 +103,13 @@ class ProductDetail extends React.Component {
     const state5 =
       this.state.countProduct === 5 ? "  Số lượng đặt tối đa là 5" : "";
     const { data } = this.state;
-    
-    
+    const c = String(data.moTa).split('\n')
+    console.log(c);
+    const d = c.map(data => {
+      return(
+        <p style={{fontSize: "19px"}}>{data}</p>
+      )
+    })
     return (
       <div>
         <Header/>
@@ -142,7 +146,7 @@ class ProductDetail extends React.Component {
                     <div className="product-information">
                       <h2>{data.tenSach}</h2>
                       <div className="gia-bia">
-                        <h3>{data.giaBia} ₫</h3>
+                        <h3>{parseInt(data.giaBia).toLocaleString()} ₫</h3>
                       </div>
                       <p>Ngày xuất bản: 05-2021</p>
                       <p>Loại bìa: bìa mềm</p>
@@ -165,11 +169,11 @@ class ProductDetail extends React.Component {
                       <div>
                         {this.state.isLogin === false ? (
                           <Alert severity="error">
-                            Bạn chưa đăng nhập. Vui lòng đăng nhập để mua hàng
+                            Bạn chưa đăng nhập. Vui lòng đăng nhập để mua sác
                           </Alert>
                         ) : this.state.isLogin === true ? (
                           <Alert severity="success">
-                            Thêm hàng vào giỏ thành công
+                            Sách đã được thêm vào giỏ thành công
                           </Alert>
                         ) : (
                           ""
@@ -213,7 +217,7 @@ class ProductDetail extends React.Component {
                   </div>
                   <div className="tab-content">
                     <div className="tab-pane fade active in" id="details">
-                      {data.moTa}
+                      {d}
                     </div>
                     <div className="tab-pane fade" id="companyprofile">
                       <div className="col-sm-3">

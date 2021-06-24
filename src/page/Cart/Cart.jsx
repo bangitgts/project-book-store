@@ -7,6 +7,10 @@ class Cart extends React.Component {
     this.state = {
       cartUser: [],
     };
+    this.onDelete= this.onDelete.bind(this);
+  }
+  onDelete() {
+    console.log('abc')
   }
   componentDidMount() {
     var axios = require("axios");
@@ -71,7 +75,7 @@ class Cart extends React.Component {
             </p>
           </td>
           <td className="cart_delete">
-            <a className="cart_quantity_delete" href>
+            <a onClick={()=>this.onDelete()} className="cart_quantity_delete" href>
               <i className="fa fa-times" />
             </a>
           </td>

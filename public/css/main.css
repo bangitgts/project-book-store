@@ -56,7 +56,7 @@ a#scrollUp {
     bottom: 0px;
     right: 10px;
     padding: 5px 10px;
-    background: #FE980F;
+    background: #D95B35;
     color: #FFF;
     -webkit-animation: bounce 2s ease infinite;
     animation: bounce 2s ease infinite;
@@ -87,7 +87,7 @@ a#scrollUp i {
 }
 
 .contactinfo ul li a:hover {
-    color: #F9825D;
+    color: #D95B35;
     background: inherit;
 }
 
@@ -164,14 +164,14 @@ a#scrollUp i {
 }
 
 .usa:hover {
-    background: #FE980F;
+    background: #D95B35;
     color: #fff;
-    border-color: #FE980F;
+    border-color: #D95B35;
 }
 
 .usa:active,
 .usa.active {
-    background: none repeat scroll 0 0 #FE980F;
+    background: none repeat scroll 0 0 #D95B35;
     box-shadow: inherit;
     outline: 0 none;
 }
@@ -183,7 +183,7 @@ a#scrollUp i {
 
 .dropdown-menu li a:hover,
 .dropdown-menu li a:focus {
-    background-color: #FE980F;
+    background-color: #D95B35;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
@@ -214,7 +214,7 @@ a#scrollUp i {
 }
 
 .shop-menu ul li a:hover {
-    color: #fe980f;
+    color: #D95B35;
     background: #fff;
 }
 
@@ -354,7 +354,7 @@ ul.sub-menu {
 }
 
 .companyinfo h2 span {
-    color: #FE980F;
+    color: #D95B35;
 }
 
 .companyinfo p {
@@ -392,7 +392,7 @@ ul.sub-menu {
     top: 0;
     width: 100%;
     height: 61px;
-    background: #FE980F;
+    background: #D95B35;
     border-radius: 3px;
     color: #FFF;
     font-size: 20px;
@@ -488,7 +488,7 @@ ul.sub-menu {
 
 .single-widget ul li a:hover {
     background: none;
-    color: #FE980F;
+    color: #D95B35;
 }
 
 .searchform input {
@@ -503,7 +503,7 @@ ul.sub-menu {
 }
 
 .searchform button {
-    background: #FE980F;
+    background: #D95B35;
     border: medium none;
     border-radius: 0;
     margin-left: -5px;
@@ -518,7 +518,7 @@ ul.sub-menu {
 
 .searchform button:hover,
 .searchform button:focus {
-    background-color: #FE980F;
+    background-color: #D95B35;
 }
 
 .searchform p {
@@ -542,7 +542,7 @@ ul.sub-menu {
 }
 
 .footer-bottom p span a {
-    color: #FE980F;
+    color: #D95B35;
     font-style: italic;
     text-decoration: underline;
 }
@@ -561,7 +561,7 @@ ul.sub-menu {
 }
 
 .carousel-indicators li.active {
-    background: #FE980F;
+    background: #D95B35;
 }
 
 .item {
@@ -586,7 +586,7 @@ ul.sub-menu {
 }
 
 .item h1 span {
-    color: #FE980F;
+    color: #D95B35;
 }
 
 .item h2 {
@@ -606,7 +606,7 @@ ul.sub-menu {
 }
 
 .get {
-    background: #FE980F;
+    background: #D95B35;
     border: 0 none;
     border-radius: 0;
     color: #FFFFFF;
@@ -617,7 +617,7 @@ ul.sub-menu {
 }
 
 .item button:hover {
-    background: #FE980F;
+    background: #D95B35;
 }
 
 .control-carousel {
@@ -628,7 +628,7 @@ ul.sub-menu {
 }
 
 .control-carousel:hover {
-    color: #FE980F;
+    color: #D95B35;
 }
 
 .right {
@@ -644,7 +644,7 @@ ul.sub-menu {
 
 .left-sidebar h2,
 .brands_products h2 {
-    color: #FE980F;
+    color: #D95B35;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -788,7 +788,7 @@ h2.title:before {
 }
 
 .tooltip-inner {
-    background-color: #FE980F;
+    background-color: #D95B35;
     border-radius: 4px;
     color: #FFFFFF;
     max-width: 200px;
@@ -798,7 +798,7 @@ h2.title:before {
 }
 
 .tooltip.top .tooltip-arrow {
-    border-top-color: #FE980F;
+    border-top-color: #D95B35;
     border-width: 5px 5px 0;
     bottom: 0;
     left: 50%;
@@ -814,7 +814,7 @@ h2.title:before {
 }
 
 h2.title {
-    color: #FE980F;
+    color: #D95B35;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -854,21 +854,21 @@ h2.title {
 }
 
 .productinfo h2 {
-    color: #FE980F;
-    font-family: 'Roboto', sans-serif;
+    color: #D95B35;
+    font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 700;
 }
 
 .product-overlay h2 {
     color: #fff;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 700;
 }
 
 .productinfo p {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #696763;
@@ -889,7 +889,7 @@ h2.title {
 }
 
 .product-overlay {
-    background: #FE980F;
+    background: #D95B35;
     top: 0;
     display: none;
     height: 0;
@@ -918,7 +918,7 @@ h2.title {
     background: #fff;
     border: 0 none;
     border-radius: 0;
-    color: #FE980F;
+    color: #D95B35;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     margin-bottom: 25px;
@@ -926,7 +926,7 @@ h2.title {
 
 .product-overlay .add-to-cart:hover {
     background: #fff;
-    color: #FE980F;
+    color: #D95B35;
 }
 
 .product-overlay p {
@@ -947,7 +947,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-    background: #FE980F;
+    background: #D95B35;
     border: 0 none;
     border-radius: 0;
     color: #FFFFFF;
@@ -962,7 +962,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-    background: #FE980F;
+    background: #D95B35;
     color: #FFFFFF;
 }
 
@@ -984,7 +984,7 @@ h2.title {
 
 .choose ul li a:hover {
     background: none;
-    color: #FE980F;
+    color: #D95B35;
 }
 
 .category-tab {
@@ -992,8 +992,8 @@ h2.title {
 }
 
 .category-tab ul {
-    background: #40403E;
-    border-bottom: 1px solid #FE980F;
+    background: #f5f5f5;
+    border-bottom: 1px solid #D95B35;
     list-style: none outside none;
     margin: 0 0 30px;
     padding: 0;
@@ -1011,7 +1011,7 @@ h2.title {
 }
 
 .category-tab ul li a:hover {
-    background: #FE980F;
+    background: #D95B35;
     color: #fff;
 }
 
@@ -1022,7 +1022,7 @@ h2.title {
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
-    background-color: #FE980F;
+    background-color: #D95B35;
     border: 0px;
     color: #FFFFFF;
     cursor: default;
@@ -1051,7 +1051,7 @@ h2.title {
 }
 
 .recommended-item-control i {
-    background: none repeat scroll 0 0 #FE980F;
+    background: none repeat scroll 0 0 #D95B35;
     color: #FFFFFF;
     font-size: 20px;
     padding: 4px 10px;
@@ -1120,8 +1120,8 @@ h2.title {
 .pagination .active span:hover,
 .pagination .active a:focus,
 .pagination .active span:focus {
-    background-color: #FE980F;
-    border-color: #FE980F;
+    background-color: #D95B35;
+    border-color: #D95B35;
     color: #FFFFFF;
     cursor: default;
     z-index: 2;
@@ -1142,7 +1142,7 @@ h2.title {
 }
 
 .pagination li a:hover {
-    background: #FE980F;
+    background: #D95B35;
     color: #fff;
 }
 
@@ -1187,7 +1187,7 @@ h2.title {
 }
 
 .view-product h3 {
-    background: #FE980F;
+    background: #D95B35;
     bottom: 0;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
@@ -1214,7 +1214,7 @@ h2.title {
 }
 
 .item-control i {
-    background: #FE980F;
+    background: #D95B35;
     color: #FFFFFF;
     font-size: 20px;
     padding: 5px 10px;
@@ -1241,18 +1241,20 @@ h2.title {
 
 .product-information h2 {
     color: #363432;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
     margin-top: 0;
 }
 
 .product-information .gia-bia h3 {
     color: #ee4d2d;
+    font-family: 'Poppins', sans-serif;
 }
 
 .product-information p {
     color: #696763;
-    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
     margin-bottom: 5px;
 }
 
@@ -1263,7 +1265,7 @@ h2.title {
 }
 
 .product-information span span {
-    color: #FE980F;
+    color: #D95B35;
     float: left;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
@@ -1355,13 +1357,13 @@ h2.title {
 }
 
 #reviews ul li a i {
-    color: #FE980F;
+    color: #D95B35;
     padding-right: 8px;
 }
 
 #reviews ul li a:hover {
     background: #fff;
-    color: #FE980F;
+    color: #D95B35;
 }
 
 #reviews p {
@@ -1402,7 +1404,7 @@ h2.title {
 }
 
 #reviews button {
-    background: #FE980F;
+    background: #D95B35;
     border: 0 none;
     border-radius: 0;
     color: #FFFFFF;
@@ -1441,7 +1443,7 @@ h2.title {
 }
 
 .content-404 h2 a {
-    background: #FE980F;
+    background: #D95B35;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     font-size: 44px;
@@ -1507,7 +1509,7 @@ h2.title {
 
 .login-form form button,
 .signup-form form button {
-    background: #FE980F;
+    background: #D95B35;
     border: medium none;
     border-radius: 0;
     color: #FFFFFF;
@@ -1528,7 +1530,7 @@ h2.title {
 }
 
 .or {
-    background: #FE980F;
+    background: #D95B35;
     border-radius: 40px;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
@@ -1560,7 +1562,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb li a {
-    background: #FE980F;
+    background: #D95B35;
     color: #FFFFFF;
     padding: 3px 7px;
 }
@@ -1571,7 +1573,7 @@ h2.title {
     width: auto;
     border-width: 8px;
     border-style: solid;
-    border-color: transparent transparent transparent #FE980F;
+    border-color: transparent transparent transparent #D95B35;
     position: absolute;
     top: 11px;
     left: 48px;
@@ -1637,7 +1639,7 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_total_price {
-    color: #FE980F;
+    color: #D95B35;
     font-size: 24px;
 }
 
@@ -1673,6 +1675,7 @@ h2.title {
 }
 
 .cart_delete a {
+    cursor: pointer;
     background: #F0F0E9;
     color: #FFFFFF;
     padding: 5px 7px;
@@ -1681,7 +1684,7 @@ h2.title {
 }
 
 .cart_delete a:hover {
-    background: #FE980F
+    background: #D95B35
 }
 
 .bg h2.title {
@@ -1783,7 +1786,7 @@ textarea {
 
 .update,
 .check_out {
-    background: #FE980F;
+    background: #D95B35;
     border-radius: 0;
     color: #FFFFFF;
     margin-top: 18px;
@@ -1850,7 +1853,7 @@ textarea {
 }
 
 .checkout-options .nav li a {
-    color: #FE980F;
+    color: #D95B35;
     font-size: 18px;
     font-weight: normal;
     padding: 0
@@ -1864,7 +1867,7 @@ textarea {
     margin-right: 10px;
     border-radius: 50%;
     padding: 5px;
-    background: #FE980F;
+    background: #D95B35;
     color: #fff;
     font-size: 14px;
     padding: 2px 3px;
@@ -1890,7 +1893,7 @@ textarea {
 }
 
 .shopper-info .btn-primary {
-    background: #FE980F;
+    background: #D95B35;
     border: 0 none;
     border-radius: 0;
     margin-right: 15px;
@@ -1969,7 +1972,7 @@ textarea {
 }
 
 #cart_items .cart_info .table.table-condensed.total-result span {
-    color: #FE980F;
+    color: #D95B35;
     font-weight: 700;
     font-size: 16px
 }
@@ -2026,7 +2029,7 @@ textarea {
 }
 
 .blog-post-area .post-meta ul li i {
-    background: #FE980F;
+    background: #D95B35;
     color: #FFFFFF;
     margin-left: -4px;
     margin-right: 7px;
@@ -2039,7 +2042,7 @@ textarea {
     position: absolute;
     width: auto;
     height: auto;
-    border-color: transparent transparent transparent #FE980F;
+    border-color: transparent transparent transparent #D95B35;
     border-width: 4px;
     border-style: solid;
     top: 6px;
@@ -2048,7 +2051,7 @@ textarea {
 
 .blog-post-area .post-meta ul span {
     float: right;
-    color: #FE980F
+    color: #D95B35
 }
 
 .post-meta span {
@@ -2056,11 +2059,11 @@ textarea {
 }
 
 .post-meta span i {
-    color: #FE980F
+    color: #D95B35
 }
 
 .blog-post-area .single-blog-post .btn-primary {
-    background: #FE980F;
+    background: #D95B35;
     border: medium none;
     border-radius: 0;
     color: #FFFFFF;
@@ -2083,7 +2086,7 @@ textarea {
 
 .pagination-area .pagination li a:hover,
 .pagination-area .pagination li .active {
-    background: #FE980F;
+    background: #D95B35;
     color: #fff
 }
 
@@ -2109,7 +2112,7 @@ textarea {
 }
 
 .pager-area .pager li a:hover {
-    background: #FE980F;
+    background: #D95B35;
     color: #fff
 }
 
@@ -2144,7 +2147,7 @@ textarea {
 
 .rating-area .ratings .color,
 .rating-area .color {
-    color: #FE980F
+    color: #D95B35
 }
 
 .rating-area .tag {
@@ -2228,7 +2231,7 @@ textarea {
 
 .blog-socials ul li a:hover {
     color: #fff;
-    background: #FE980F
+    background: #D95B35
 }
 
 .media-list .btn-primary,
@@ -2288,7 +2291,7 @@ textarea {
 }
 
 .sinlge-post-meta li i {
-    background: #FE980F;
+    background: #D95B35;
     color: #FFFFFF;
     margin-right: 10px;
     padding: 8px 10px;
@@ -2314,7 +2317,7 @@ textarea {
 }
 
 .replay-box label {
-    background: #FE980F;
+    background: #D95B35;
     color: #FFFFFF;
     margin-bottom: 15px;
     padding: 3px 15px;
@@ -2323,7 +2326,7 @@ textarea {
 }
 
 .replay-box span {
-    color: #FE980F;
+    color: #D95B35;
     float: right;
     font-weight: 700;
     margin-top: 21px;
@@ -2340,7 +2343,7 @@ textarea {
 
 .replay-box form input:hover,
 .text-area textarea:hover {
-    border: 1px solid #FE980F;
+    border: 1px solid #D95B35;
 }
 
 .text-area {
@@ -2353,7 +2356,7 @@ textarea {
 }
 
 .btn.btn-primary {
-    background: #FE980F;
+    background: #D95B35;
     border: 0 none;
     border-radius: 0;
     margin-top: 16px;
@@ -2370,7 +2373,7 @@ textarea {
     height: auto;
     border-style: solid;
     border-width: 8px;
-    border-color: #FE980F transparent transparent transparent;
+    border-color: #D95B35 transparent transparent transparent;
     top: 25px;
     left: 5px
 }
@@ -2475,7 +2478,7 @@ textarea {
 }
 
 .contact-info .social-networks ul li a:hover {
-    color: #FE980F;
+    color: #D95B35;
 }
 
 .button-decrease {
@@ -2497,6 +2500,7 @@ textarea {
 
 .MuiAlert-message {
     font-size: 15px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .like-product {
@@ -2510,4 +2514,123 @@ textarea {
     font-size: 22px;
     color: white;
     text-shadow: -1px 0 #FF4D59, 0 1px #FF4D59, 1px 0 #FF4D59, 0 -1px #FF4D59;
+}
+
+
+/* profile */
+
+
+/* Profile container */
+
+.profile {
+    margin: 20px 0;
+}
+
+
+/* Profile sidebar */
+
+.profile-sidebar {
+    padding: 20px 0 10px 0;
+    background: #fff;
+}
+
+.profile-userpic img {
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+.profile-usertitle {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-usertitle-name {
+    color: #5a7391;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 15px;
+    margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+    margin-right: 0px;
+}
+
+.profile-usermenu {
+    margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+    border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+    border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+    color: #93a3b5;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+    background-color: #fafcfd;
+    color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+    border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+    color: #5b9bd1;
+    background-color: #f6f9fb;
+    border-left: 2px solid #5b9bd1;
+    margin-left: -2px;
+}
+
+
+/* Profile Content */
+
+.profile-content {
+    padding: 20px;
+    background: #fff;
+    min-height: 460px;
+}
+
+.a .button-span,
+.button-decrease {
+    font-family: 'Poppins', sans-serif;
+    font-size: 19px;
 }

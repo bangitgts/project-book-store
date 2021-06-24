@@ -4,7 +4,7 @@ import React from "react";
 const axios = require("axios");
 import { Link } from "react-router-dom";
 import LinearProgress from '@material-ui/core/LinearProgress';
-
+import ReactLoading from "react-loading";
 class ListBook extends React.Component {
   constructor(props) {
     super(props);
@@ -15,9 +15,8 @@ class ListBook extends React.Component {
   componentDidMount() {
     var config = {
       method: "get",
-      url: "http://45.77.12.16:4000/product",
+      url: "http://localhost:3000/product",
     };
-
     axios(config)
       .then((req) => req.data.data)
       .then((data) => {
@@ -28,6 +27,7 @@ class ListBook extends React.Component {
   }
   render() {
     const { data } = this.state;
+ 
     const dataList = data.map((data) => {
       const url = `product/${data._id}`;
       return (
@@ -51,11 +51,12 @@ class ListBook extends React.Component {
         </div>
       );
     });
-    const dataIs = data.length === 0 ? <LinearProgress color="secondary" /> : dataList;
+    const dataIs = data.length === 0 ? 
+    
+    <ReactLoading type="cubes" color="#D95B35" height={'200px'} width={'200px'} />
+    : dataList;
     return (
       <div className="features_items">
-        {/*features_items*/}
-        
         {dataIs}
       </div>
     );

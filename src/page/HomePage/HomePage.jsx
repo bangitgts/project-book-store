@@ -47,7 +47,9 @@ class HomePage extends React.Component {
 
               <div className="col-sm-12 padding-right">
                 {/* ListBOOK */}
+               
                 <ListBook />
+               
                 <div className="recommended_items">
                   {/*recommended_items*/}
                   <h2 className="title text-center">Recommended Books</h2>
