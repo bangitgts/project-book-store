@@ -27,11 +27,11 @@ class Header extends React.Component {
         return response.data;
       })
       .then((data) => {
+
         this.setState({ auth: true, data: data });
       })
       .catch(function (error) {});
-      console.log(this.props.onGetlogin)
-  
+    
   }
   logOut() {
     localStorage.removeItem("auth-token");
@@ -43,7 +43,9 @@ class Header extends React.Component {
       <ul className="nav navbar-nav pull-right">
         <li>
           <a href="#">
-            <i className="fa fa-shopping-cart" /> Cart ({this.props.cartSl})
+            <i className="fa fa-shopping-cart" /> Cart
+     
+            <sup className="cart-sup">{this.state.data.data.cart.length}</sup>
           </a>
         </li>
         <li className="dropdown">

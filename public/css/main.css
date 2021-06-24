@@ -854,10 +854,15 @@ h2.title {
 }
 
 .productinfo h2 {
-    color: #D95B35;
+    color: #D95B35!important;
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 700;
+}
+
+.productinfo h4 {
+    color: #D95B35!important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .product-overlay h2 {
@@ -1589,7 +1594,7 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_menu {
-    background: #F9825D;
+    background: #D95B35;
     color: #fff;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
@@ -1616,6 +1621,10 @@ h2.title {
 
 #cart_items .cart_info .image {
     padding-left: 30px;
+}
+
+#cart_items .cart_info .cart_description {
+    width: 250px;
 }
 
 #cart_items .cart_info .cart_description h4 {
@@ -1648,6 +1657,10 @@ h2.title {
     margin: 15px -70px 10px 25px;
 }
 
+.cart_chonmua {
+    text-align: center;
+}
+
 .cart_quantity_button a {
     background: #F0F0E9;
     color: #696763;
@@ -1670,7 +1683,7 @@ h2.title {
 
 .cart_delete {
     display: block;
-    margin-right: -12px;
+    margin-right: 0px;
     overflow: hidden;
 }
 

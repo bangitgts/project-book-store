@@ -1,7 +1,9 @@
 import React from "react";
 import Alert from "@material-ui/lab/Alert";
-import LinearProgress from '@material-ui/core/LinearProgress';
+import ReactLoading from "react-loading";
+
 import { Header } from "../Header";
+var _ = require("lodash");
 const axios = require("axios");
 const qs = require("qs");
 
@@ -73,7 +75,7 @@ class ProductDetail extends React.Component {
   }
 
   componentDidMount() {
-    const url = "http://localhost:3000/product/show/";
+    const url = "http://45.77.12.16:4000/product/show/";
     const id = this.props.match.params.id;
     const urlFull = url + id;
     var config = {
@@ -86,7 +88,7 @@ class ProductDetail extends React.Component {
         return response.data.data;
       })
       .then((data) => {
-        console.log(String(data.moTa).split('\n'));
+        console.log(String(data.moTa).split("\n"));
         this.setState({
           data: data,
         });
@@ -103,16 +105,15 @@ class ProductDetail extends React.Component {
     const state5 =
       this.state.countProduct === 5 ? "  Số lượng đặt tối đa là 5" : "";
     const { data } = this.state;
-    const c = String(data.moTa).split('\n')
+    const c = String(data.moTa).split("\n");
     console.log(c);
-    const d = c.map(data => {
-      return(
-        <p style={{fontSize: "19px"}}>{data}</p>
-      )
-    })
+    const d = c.map((data) => {
+      return <p style={{ fontSize: "19px" }}>{data}</p>;
+    });
+
     return (
       <div>
-        <Header/>
+        <Header />
         <section>
           <div className="container">
             <nav>
@@ -198,16 +199,7 @@ class ProductDetail extends React.Component {
                           SƠ LƯỢC VỀ TÁC PHẨM
                         </a>
                       </li>
-                      <li>
-                        <a href="#companyprofile" data-toggle="tab">
-                          Company Profile
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#tag" data-toggle="tab">
-                          Tag
-                        </a>
-                      </li>
+                      
                       <li>
                         <a href="#reviews" data-toggle="tab">
                           Reviews (5)
@@ -218,154 +210,6 @@ class ProductDetail extends React.Component {
                   <div className="tab-content">
                     <div className="tab-pane fade active in" id="details">
                       {d}
-                    </div>
-                    <div className="tab-pane fade" id="companyprofile">
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery1.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery3.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery2.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery4.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane fade" id="tag">
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery1.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery2.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery3.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-sm-3">
-                        <div className="product-image-wrapper">
-                          <div className="single-products">
-                            <div className="productinfo text-center">
-                              <img src="images/home/gallery4.jpg" alt="" />
-                              <h2>$56</h2>
-                              <p>Easy Polo Black Edition</p>
-                              <button
-                                type="button"
-                                className="btn btn-default add-to-cart"
-                              >
-                                <i className="fa fa-shopping-cart" />
-                                Add to cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                     <div className="tab-pane" id="reviews">
                       <div className="col-sm-12">
