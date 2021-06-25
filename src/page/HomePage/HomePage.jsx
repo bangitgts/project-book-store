@@ -10,13 +10,12 @@ class HomePage extends React.Component {
       data: [],
     };
   }
-  
-  render() {
 
+  render() {
     return (
       <div>
         <Header />
-        
+
         {/*/header*/}
         <section>
           <div className="container">
@@ -47,9 +46,9 @@ class HomePage extends React.Component {
 
               <div className="col-sm-12 padding-right">
                 {/* ListBOOK */}
-               
+
                 <ListBook />
-               
+
                 <div className="recommended_items">
                   {/*recommended_items*/}
                   <h2 className="title text-center">Recommended Books</h2>
@@ -194,11 +193,12 @@ class HomePage extends React.Component {
           </div>
         </section>
         {/* FOOTER */}
-        <div className="footer-top">
-          <div className="container">
-            <div className="row">Footer ở đây</div>
-          </div>
-        </div>
+
+        <footer id="footer">
+          <ul class="list-inline text-center">
+            <li>2021 © Chuyên đề thực tế 2</li>
+          </ul>
+        </footer>
       </div>
     );
   }

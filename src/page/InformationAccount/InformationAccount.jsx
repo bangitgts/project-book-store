@@ -13,6 +13,7 @@ class InformationAccount extends React.Component {
       name: "",
       address: "",
       phoneNumber: "",
+      dateBirth: "",
       sex: "",
       introduce: "",
       dataUser: [],
@@ -114,6 +115,7 @@ class InformationAccount extends React.Component {
           name: data.name,
           address: data.address,
           phoneNumber: data.phoneNumber,
+          dateBirth:data.dateBirth,
           sex: String(data.sex),
           introduce: data.introduce,
         });
@@ -164,6 +166,7 @@ class InformationAccount extends React.Component {
     e.preventDefault();
   };
   render() {
+    console.log(this.state.dateBirth)
     const { dataUser } = this.state;
     console.log(this.state.sex)
     const url = dataUser.imagePerson;
@@ -198,6 +201,12 @@ class InformationAccount extends React.Component {
                       <a href="#">
                         <i className="glyphicon glyphicon-user" />
                         Tài Khoản của tôi{" "}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="glyphicon glyphicon-pencil" />
+                        Đổi mật khẩu{" "}
                       </a>
                     </li>
                     <li>
@@ -257,6 +266,7 @@ class InformationAccount extends React.Component {
                       <label>Ngày Sinh:</label>
                       <input
                         value={this.state.dateBirth}
+                        max="2000-12-31"
                         type="date"
                         className="form-control"
                         name="dateBirth"
@@ -281,7 +291,7 @@ class InformationAccount extends React.Component {
                       </select>
                     </div>
                     <div className="form-group">
-                      <label>Introduce:</label>
+                      <label>Giới Thiệu</label>
                       <input
                         value={this.state.introduce}
                         type="text"
@@ -350,7 +360,11 @@ class InformationAccount extends React.Component {
           </div>
         </div>
 
-        <footer id="footer"></footer>
+        <footer id="footer">
+        <ul class="list-inline text-center">
+                    <li>2021 © Chuyên đề thực tế 2</li>
+                </ul>
+        </footer>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Header } from "../Header";
+import { Footer } from "../Footer";
 const axios = require("axios");
 const qs = require("qs");
 class Cart extends React.Component {
@@ -38,8 +39,7 @@ class Cart extends React.Component {
         this.setState({
           cartUser: data.cart,
           tongSanphamthanhtoan: data.tongSanphamthanhtoan,
-          tongTienthanhtoan: data.tongTienthanhtoan
-
+          tongTienthanhtoan: data.tongTienthanhtoan,
         });
       })
       .catch(function (error) {
@@ -351,7 +351,10 @@ class Cart extends React.Component {
                     </td>
                     <td className="cart_description"></td>
                     <td className="cart_price"></td>
-                    <td className="cart_total_price">Tổng thanh toán ({this.state.tongSanphamthanhtoan} Sản Phẩm)</td>
+                    <td className="cart_total_price">
+                      Tổng thanh toán ({this.state.tongSanphamthanhtoan} Sản
+                      Phẩm)
+                    </td>
                     <td className="cart_total">
                       <p className="cart_total_price"></p>
                     </td>
@@ -366,6 +369,12 @@ class Cart extends React.Component {
             </table>
           </div>
         </section>
+
+        <footer id="footer">
+          <ul class="list-inline text-center">
+            <li>2021 © Chuyên đề thực tế 2</li>
+          </ul>
+        </footer>
       </div>
     );
   }

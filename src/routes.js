@@ -4,6 +4,7 @@ import { LoginPage } from "./page/LoginPage";
 import { ProductDetail } from "./page/ProductDetail";
 import { InformationAccount } from "./page/InformationAccount";
 import { Cart } from "./page/Cart";
+import { ChangePassword } from "./page/ChangePassword/ChangePassword";
 const routes = [{
         path: "/",
         exact: true,
@@ -25,5 +26,10 @@ const routes = [{
         exact: false,
         main: () => < InformationAccount / > ,
     },
+    {
+        path: "/changepassword",
+        exact: false,
+        main: () => < ChangePassword / > ,
+    }
 ];
 export { routes };

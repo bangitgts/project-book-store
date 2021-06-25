@@ -3,6 +3,7 @@ import Alert from "@material-ui/lab/Alert";
 import ReactLoading from "react-loading";
 
 import { Header } from "../Header";
+import Footer from "../Footer/Footer";
 var _ = require("lodash");
 const axios = require("axios");
 const qs = require("qs");
@@ -408,7 +409,7 @@ class ProductDetail extends React.Component {
             </div>
           </div>
         </section>
-        <footer id="footer"></footer>
+        <Footer/>
       </div>
     );
   }
