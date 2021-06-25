@@ -153,7 +153,7 @@ class ProductDetail extends React.Component {
                       <p>Loại bìa: bìa mềm</p>
                       <p>Kích thước: 11 x 18 cm</p>
                       <p>Số trang: 152</p>
-                      <p>Số Lượng Mua:</p>
+                      <p>Chọn số lượng mua:</p>
                       <div className="a">
                         <button onClick={this.tang} className="button-decrease">
                           +

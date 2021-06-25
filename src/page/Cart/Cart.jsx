@@ -52,7 +52,7 @@ class Cart extends React.Component {
         <tr>
           <td className="cart_product">
             <a href>
-              <img style={{ width: "40%" }} src={data.urlImage} alt="" />
+              <img className="view-cart-product" style={{ width: "40%" }} src={data.urlImage} alt="" />
             </a>
           </td>
           <td className="cart_description">

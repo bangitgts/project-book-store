@@ -1189,6 +1189,7 @@ h2.title {
 .view-product img {
     border: 10px solid #F7F7F0;
     width: 100%;
+    box-shadow: 5px 10px #888888;
 }
 
 .view-product h3 {
@@ -1312,6 +1313,7 @@ h2.title {
     padding: 15px;
     margin-bottom: 10px;
     margin-left: 0px;
+    border-radius: 7px;
     transition: 0.2s;
 }
 
@@ -1324,8 +1326,13 @@ h2.title {
     font-size: 20px;
     padding: 15px;
     margin-bottom: 10px;
+    border-radius: 7px;
     margin-left: 0px;
     transition: 0.2s;
+}
+
+.cart_product .view-cart-product {
+    box-shadow: 3px 6px #888888;
 }
 
 .shop-details-tab {
@@ -1339,6 +1346,7 @@ h2.title {
 .shop-details-tab .col-sm-12 {
     padding-left: 0;
     padding-right: 0;
+    border-radius: 5px;
 }
 
 #reviews ul {
@@ -1589,7 +1597,6 @@ h2.title {
 }
 
 #cart_items .cart_info {
-    border: 1px solid #E6E4DF;
     margin-bottom: 50px;
 }
 
@@ -2501,6 +2508,7 @@ textarea {
     background: white;
     color: black;
     padding: 5px;
+    border-radius: 5px;
 }
 
 .button-span {
