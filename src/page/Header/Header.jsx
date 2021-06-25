@@ -42,10 +42,10 @@ class Header extends React.Component {
     const authLoginregister = this.state.auth ? (
       <ul className="nav navbar-nav pull-right">
         <li>
-          <a href="#">
-            <i className="fa fa-shopping-cart" /> Cart
+          <a href="/checkout">
+            <i className="fa fa-shopping-cart" />
      
-            <sup className="cart-sup">{this.state.data.data.cart.length}</sup>
+            {/* <sup className="cart-sup">{this.state.data.data.cart.length}</sup> */}
           </a>
         </li>
         <li className="dropdown">

@@ -8,6 +8,8 @@ class Cart extends React.Component {
     super(props);
     this.state = {
       cartUser: [],
+      tongSanphamthanhtoan: "",
+      tongTienthanhtoan: "",
     };
     this.onDelete = this.onDelete.bind(this);
   }
@@ -31,28 +33,34 @@ class Cart extends React.Component {
 
     axios(config)
       .then((req) => req.data)
-      .then((data) => data.cart)
+      .then((data) => data)
       .then((data) => {
         this.setState({
-          cartUser: data,
+          cartUser: data.cart,
+          tongSanphamthanhtoan: data.tongSanphamthanhtoan,
+          tongTienthanhtoan: data.tongTienthanhtoan
+
         });
       })
       .catch(function (error) {
         console.log(error);
       });
   }
-  componentDidUpdate() {
-    console.log("did update");
-  }
+
   render() {
     const { cartUser } = this.state;
 
     const dataCartlist = cartUser.map((data, index) => {
       return (
-        <tr>
+        <tr className={data.isStatus === "0" ? "no-change" : "change-selected"}>
           <td className="cart_product">
             <a href>
-              <img className="view-cart-product" style={{ width: "40%" }} src={data.urlImage} alt="" />
+              <img
+                className="view-cart-product"
+                style={{ width: "40%" }}
+                src={data.urlImage}
+                alt=""
+              />
             </a>
           </td>
           <td className="cart_description">
@@ -81,6 +89,27 @@ class Cart extends React.Component {
                     .catch(function (error) {
                       console.log(error);
                     });
+
+                  const temp = this.state.cartUser;
+                  const removed = temp.splice(index, 1);
+                  const newDatadd = {
+                    amount: data.amount,
+                    giaBia: data.giaBia,
+                    isStatus: "1",
+                    khoSach: data.khoSach,
+                    loaisach: data.loaisach,
+                    nxb: data.nxb,
+                    phathanhthang: data.phathanhthang,
+                    tacGia: data.tacGia,
+                    tenSach: data.tenSach,
+                    theLoai: "",
+                    urlImage: data.urlImage,
+                    _id: data._id,
+                  };
+                  temp.splice(index, 0, newDatadd);
+                  this.setState({
+                    cartUser: temp,
+                  });
                 }}
                 type="checkbox"
                 id="c1"
@@ -89,7 +118,6 @@ class Cart extends React.Component {
             ) : (
               <input
                 onClick={() => {
-                  console.log(data._id);
                   var config = {
                     method: "put",
                     url: `http://45.77.12.16:4000/product/changepayment/${data._id}`,
@@ -98,6 +126,26 @@ class Cart extends React.Component {
                     },
                   };
 
+                  const temp = this.state.cartUser;
+                  const removed = temp.splice(index, 1);
+                  const newDatadd = {
+                    amount: data.amount,
+                    giaBia: data.giaBia,
+                    isStatus: "0",
+                    khoSach: data.khoSach,
+                    loaisach: data.loaisach,
+                    nxb: data.nxb,
+                    phathanhthang: data.phathanhthang,
+                    tacGia: data.tacGia,
+                    tenSach: data.tenSach,
+                    theLoai: "",
+                    urlImage: data.urlImage,
+                    _id: data._id,
+                  };
+                  temp.splice(index, 0, newDatadd);
+                  this.setState({
+                    cartUser: temp,
+                  });
                   axios(config)
                     .then(function (response) {
                       console.log(JSON.stringify(response.data));
@@ -291,20 +339,29 @@ class Cart extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {dataCartlist}
-                <tr>
-                  <td className="cart_product">
-                    <a href>
-                      <img src="" alt="" />
-                    </a>
-                  </td>
-                  <td className="cart_description"></td>
-                  <td className="cart_price"></td>
-                  <td className="cart_total_price">Tổng tiền</td>
-                  <td className="cart_total">
-                    <p className="cart_total_price">1,0000,0000</p>
-                  </td>
-                </tr>
+                {this.state.cartUser.length > 0
+                  ? dataCartlist
+                  : "Ban chua co hang nao"}
+                {this.state.cartUser.length > 0 ? (
+                  <tr>
+                    <td className="cart_product">
+                      <a href>
+                        <img src="" alt="" />
+                      </a>
+                    </td>
+                    <td className="cart_description"></td>
+                    <td className="cart_price"></td>
+                    <td className="cart_total_price">Tổng thanh toán ({this.state.tongSanphamthanhtoan} Sản Phẩm)</td>
+                    <td className="cart_total">
+                      <p className="cart_total_price"></p>
+                    </td>
+                    <td className="cart_total">
+                      <p className="cart_total_price">1,0000,0000</p>
+                    </td>
+                  </tr>
+                ) : (
+                  ""
+                )}
               </tbody>
             </table>
           </div>
