@@ -1,7 +1,9 @@
 import React from "react";
 import { Header } from "../Header";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
 
-import ImageUploading from "react-images-uploading";
 const axios = require("axios");
 
 class InformationAccount extends React.Component {
@@ -60,10 +62,32 @@ class InformationAccount extends React.Component {
           return response;
         })
         .then((data) => {
-          alert("Thay đổi thành công");
+          store.addNotification({
+            title: "Success!",
+            message: "Ảnh đại diện thay đổi thành công",
+            type: "success",
+            insert: "top",
+            container: "top-center",
+            dismiss: {
+              duration: 10000,
+              onScreen: false,
+              showIcon: true,
+            },
+          });
         })
         .catch(function (error) {
-          alert("Ảnh định dạng không đúng");
+          store.addNotification({
+            title: "Thất bại!",
+            message: "Xin vui lòng chọn định dạng chịnh xác",
+            type: "danger",
+            insert: "top",
+            container: "top-center",
+            dismiss: {
+              duration: 10000,
+              onScreen: false,
+              showIcon: true,
+            },
+          });
         });
     }
   };
@@ -115,7 +139,7 @@ class InformationAccount extends React.Component {
           name: data.name,
           address: data.address,
           phoneNumber: data.phoneNumber,
-          dateBirth:data.dateBirth,
+          dateBirth: data.dateBirth,
           sex: String(data.sex),
           introduce: data.introduce,
         });
@@ -132,8 +156,7 @@ class InformationAccount extends React.Component {
     }
   };
   handleChange(event) {
-
-     this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   }
   onSubmit = (e) => {
     var qs = require("qs");
@@ -157,7 +180,18 @@ class InformationAccount extends React.Component {
     axios(config)
       .then(function (response) {
         console.log(response);
-        alert("Sửa thông tin thành công");
+        store.addNotification({
+          title: "Success!",
+          message: "Sửa thông tin thành công",
+          type: "success",
+          insert: "top",
+          container: "top-center",
+          dismiss: {
+            duration: 10000,
+            onScreen: false,
+            showIcon: true,
+          },
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -166,12 +200,13 @@ class InformationAccount extends React.Component {
     e.preventDefault();
   };
   render() {
-    console.log(this.state.dateBirth)
+    console.log(this.state.dateBirth);
     const { dataUser } = this.state;
-    console.log(this.state.sex)
+    console.log(this.state.sex);
     const url = dataUser.imagePerson;
     return (
       <div>
+        <ReactNotification />
         <Header />
         <div className="container">
           <div className="row profile">
@@ -204,7 +239,7 @@ class InformationAccount extends React.Component {
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="changepassword">
                         <i className="glyphicon glyphicon-pencil" />
                         Đổi mật khẩu{" "}
                       </a>
@@ -282,12 +317,8 @@ class InformationAccount extends React.Component {
                         onChange={this.onChangeText}
                         required
                       >
-                        <option value="1">
-                          Nam
-                        </option>
-                        <option value="0">
-                          Nữ
-                        </option>
+                        <option value="1">Nam</option>
+                        <option value="0">Nữ</option>
                       </select>
                     </div>
                     <div className="form-group">
@@ -361,9 +392,9 @@ class InformationAccount extends React.Component {
         </div>
 
         <footer id="footer">
-        <ul class="list-inline text-center">
-                    <li>2021 © Chuyên đề thực tế 2</li>
-                </ul>
+          <ul class="list-inline text-center">
+            <li>2021 © Chuyên đề thực tế 2</li>
+          </ul>
         </footer>
       </div>
     );

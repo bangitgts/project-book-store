@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
 const axios = require("axios");
 const qs = require("qs");
 class LoginPage extends React.Component {
@@ -72,7 +74,7 @@ class LoginPage extends React.Component {
         Bạn sai tài khoản hoặc mật khẩu
       </p>
     );
-    const wrongPassword = this.state.wrongPassword ? wrong : "";
+    const wrongPassword = this.state.wrongPassword ? (wrong) : "";
     if(localStorage.getItem("auth-token")){
       return <Redirect to="/" />;
     }
@@ -81,6 +83,7 @@ class LoginPage extends React.Component {
     }
     return (
       <div className="page-content page-login">
+        <ReactNotification />
         <div className="page-inner">
           <div id="main-wrapper">
             <div className="row">

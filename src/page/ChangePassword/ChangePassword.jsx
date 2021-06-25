@@ -1,6 +1,8 @@
 import React from "react";
 import { Header } from "../Header";
-
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
 const axios = require("axios");
 
 class ChangePassword extends React.Component {
@@ -58,61 +60,77 @@ class ChangePassword extends React.Component {
     });
   }
   onSubmit(event) {
-    var qs = require("qs");
-    var data = qs.stringify({
-      password: this.state.passWord,
-      newPassword: this.state.newPassword,
-    });
-    var config = {
-      method: "put",
-      url: "http://45.77.12.16:4000/account/changepassword",
-      headers: {
-        "auth-token": localStorage.getItem("auth-token"),
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then(function (response) {
-        return response.data;
-      })
-      .then((data) =>
-        this.setState({
-          isStatus: true,
-        })
-      )
-      .catch(function (error) {
-        alert("Nhập sai mật khẩu cũ");
-      });
     event.preventDefault();
+    if (this.state.newPassword === this.state.renewPassword) {
+      var qs = require("qs");
+      var data = qs.stringify({
+        password: this.state.passWord,
+        newPassword: this.state.newPassword,
+      });
+      var config = {
+        method: "put",
+        url: "http://45.77.12.16:4000/account/changepassword",
+        headers: {
+          "auth-token": localStorage.getItem("auth-token"),
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        data: data,
+      };
+
+      axios(config)
+        .then(function (response) {
+          return response.data;
+        })
+        .then((data) => {
+          this.setState({
+            isStatus: true,
+          });
+          store.addNotification({
+            title: "Thành công!",
+            message: "Bạn đã đổi mật khẩu thành công",
+            type: "success",
+            insert: "top",
+            container: "top-center",
+            animationIn: ["animate__animated", "animate__fadeIn"],
+            animationOut: ["animate__animated", "animate__fadeOut"],
+            dismiss: {
+              duration: 10000,
+              onScreen: false,
+              showIcon: true,
+            },
+          });
+        })
+        .catch(function (error) {
+          store.addNotification({
+            title: "Nhập lại mật khẩu cũ!",
+            message: "Bạn nhập mật khẩu cũ không chính xác",
+            type: "danger",
+            insert: "top",
+            container: "top-center",
+            dismiss: {
+              duration: 10000,
+              onScreen: false,
+              showIcon: true,
+            },
+          });
+        });
+    } else {
+      store.addNotification({
+        title: "Warning!",
+        message: "Bạn nhập mật khẩu mới không trùng khớp",
+        type: "warning",
+        insert: "top",
+        container: "top-center",
+        dismiss: {
+          duration: 10000,
+          onScreen: false,
+          showIcon: true,
+        },
+      });
+    }
   }
   render() {
-    console.log(this.state.isStatus);
     const { dataUser } = this.state;
-
-    const isStatushien = this.state.isStatus === true ? (
-      <div>
-        <div className="modal-header justify-content-center">
-          <div className="icon-box">
-            <i className="fa fa-check" />
-          </div>
-        </div>
-        <div className="modal-body text-center">
-          <h4>Chúc mừng bạn!</h4>
-          <p
-            style={{
-              fontFamily: "Arial, Helvetica, sans-serif",
-            }}
-          >
-            Bạn đã đổi mật khẩu thành công
-          </p>
-        </div>
-      </div>
-    ) : (
-      ""
-    );
-
     if (
       (this.state.newPassword !== "") &
       (this.state.newPassword === this.state.renewPassword)
@@ -123,9 +141,9 @@ class ChangePassword extends React.Component {
         </i>
       );
     }
-    const url = dataUser.imagePerson;
     return (
       <div>
+        <ReactNotification />
         <Header />
         <div className="container">
           <div className="row profile">
@@ -224,21 +242,6 @@ class ChangePassword extends React.Component {
                           >
                             Submit
                           </button>
-
-                          <div
-                            className="modal fade"
-                            id="exampleModal"
-                            tabindex="-1"
-                            role="dialog"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true"
-                          >
-                            <div className="modal-dialog modal-confirm">
-                              <div className="modal-content">
-                                {isStatushien}
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </form>
                     </div>

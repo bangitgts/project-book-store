@@ -2585,6 +2585,7 @@ textarea {
 .profile-userpic .name-profile {
     display: inline-block;
     position: absolute;
+    margin-top: 10px;
     left: 35%;
     top: 40%;
 }

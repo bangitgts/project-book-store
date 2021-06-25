@@ -1,7 +1,5 @@
 import React from "react";
 import Alert from "@material-ui/lab/Alert";
-import ReactLoading from "react-loading";
-
 import { Header } from "../Header";
 import Footer from "../Footer/Footer";
 var _ = require("lodash");
@@ -104,7 +102,7 @@ class ProductDetail extends React.Component {
 
   render() {
     const state5 =
-      this.state.countProduct === 5 ? "  Số lượng đặt tối đa là 5" : "";
+      this.state.countProduct === 5 ? <p>Số lượng thêm tối đa là 5</p> : "";
     const { data } = this.state;
     const c = String(data.moTa).split("\n");
     console.log(c);
@@ -171,7 +169,7 @@ class ProductDetail extends React.Component {
                       <div>
                         {this.state.isLogin === false ? (
                           <Alert severity="error">
-                            Bạn chưa đăng nhập. Vui lòng đăng nhập để mua sác
+                            Bạn chưa đăng nhập. Vui lòng đăng nhập để mua sách
                           </Alert>
                         ) : this.state.isLogin === true ? (
                           <Alert severity="success">

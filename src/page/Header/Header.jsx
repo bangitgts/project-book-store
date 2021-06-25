@@ -56,10 +56,10 @@ class Header extends React.Component {
           </a>
           <ul role="menu" className="sub-menu">
             <li>
-              <a href="shop.html">Thông Tin</a>
+              <a href="account">Sửa Thông Tin</a>
             </li>
             <li>
-              <a href="checkout.html">Sửa Mật Khẩu</a>
+              <a href="changepassword">Sửa Mật Khẩu</a>
             </li>
             <li>
               <a onClick={() => this.logOut()} href="#">
