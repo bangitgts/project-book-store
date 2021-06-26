@@ -177,7 +177,14 @@ class ListBook extends React.Component {
                     <img className="text-center" src={data.urlImage} alt="" />
                   </div>
                   <h4 className="pdl-5">{data.tenSach}</h4>
-                  <p className="pdl-5">Tác giả: {data.tacGia}</p>
+                  <p className="pdl-5">
+                    {data.tacGia ? (
+                      <p>Tác giả: {data.tacGia}</p>
+                    ) : (
+                      <p>Loại Sách: Skybooks</p>
+                    )}
+                  </p>
+
                   <h4 className="pdl-5">
                     Giá bìa: {parseInt(data.giaBia).toLocaleString()} đ
                   </h4>
@@ -192,7 +199,7 @@ class ListBook extends React.Component {
       const url = `product/${data._id}`;
       return (
         <div className="col-xs-6 col-sm-3 col-md-3 col-lg-3 ">
-          <Link to={url}>
+          <a href={url}>
             <div className="product-image-wrapper">
               <div className="single-products">
                 <div className="productinfo">
@@ -200,14 +207,17 @@ class ListBook extends React.Component {
                     <img className="text-center" src={data.urlImage} alt="" />
                   </div>
                   <h4 className="pdl-5">{data.tenSach}</h4>
-                  <p className="pdl-5">Tác giả: {data.tacGia}</p>
+                  <p className="pdl-5">
+                    {data.tacGia ? <p>Tác giả: {data.tacGia}</p> : ""}
+                  </p>
+
                   <h4 className="pdl-5">
                     Giá bìa: {parseInt(data.giaBia).toLocaleString()} đ
                   </h4>
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
       );
     });
@@ -215,7 +225,7 @@ class ListBook extends React.Component {
       const url = `product/${data._id}`;
       return (
         <div className="col-xs-6 col-sm-3 col-md-3 col-lg-3 ">
-          <Link to={url}>
+          <a href={url}>
             <div className="product-image-wrapper">
               <div className="single-products">
                 <div className="productinfo">
@@ -223,14 +233,17 @@ class ListBook extends React.Component {
                     <img className="text-center" src={data.urlImage} alt="" />
                   </div>
                   <h4 className="pdl-5">{data.tenSach}</h4>
-                  <p className="pdl-5">Tác giả: {data.tacGia}</p>
+                  <p className="pdl-5">
+                    {data.tacGia ? <p>Tác giả: {data.tacGia}</p> : ""}
+                  </p>
+
                   <h4 className="pdl-5">
                     Giá bìa: {parseInt(data.giaBia).toLocaleString()} đ
                   </h4>
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
       );
     });
@@ -238,7 +251,7 @@ class ListBook extends React.Component {
       const url = `product/${data._id}`;
       return (
         <div className="col-xs-6 col-sm-3 col-md-3 col-lg-3 ">
-          <Link to={url}>
+          <a href={url}>
             <div className="product-image-wrapper">
               <div className="single-products">
                 <div className="productinfo">
@@ -246,14 +259,17 @@ class ListBook extends React.Component {
                     <img className="text-center" src={data.urlImage} alt="" />
                   </div>
                   <h4 className="pdl-5">{data.tenSach}</h4>
-                  <p className="pdl-5">Tác giả: {data.tacGia}</p>
+                  <p className="pdl-5">
+                    {data.tacGia ? <p>Tác giả: {data.tacGia}</p> : ""}
+                  </p>
+
                   <h4 className="pdl-5">
                     Giá bìa: {parseInt(data.giaBia).toLocaleString()} đ
                   </h4>
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
       );
     });
@@ -261,7 +277,7 @@ class ListBook extends React.Component {
       const url = `product/${data._id}`;
       return (
         <div className="col-xs-6 col-sm-3 col-md-3 col-lg-3 ">
-          <Link to={url}>
+          <a href={url}>
             <div className="product-image-wrapper">
               <div className="single-products">
                 <div className="productinfo">
@@ -269,14 +285,17 @@ class ListBook extends React.Component {
                     <img className="text-center" src={data.urlImage} alt="" />
                   </div>
                   <h4 className="pdl-5">{data.tenSach}</h4>
-                  <p className="pdl-5">Tác giả: {data.tacGia}</p>
+                  <p className="pdl-5">
+                    {data.tacGia ? <p>Tác giả: {data.tacGia}</p> : ""}
+                  </p>
+
                   <h4 className="pdl-5">
                     Giá bìa: {parseInt(data.giaBia).toLocaleString()} đ
                   </h4>
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
       );
     });
@@ -284,7 +303,7 @@ class ListBook extends React.Component {
       const url = `product/${data._id}`;
       return (
         <div className="col-xs-6 col-sm-3 col-md-3 col-lg-3 ">
-          <Link to={url}>
+          <a href={url}>
             <div className="product-image-wrapper">
               <div className="single-products">
                 <div className="productinfo">
@@ -292,14 +311,16 @@ class ListBook extends React.Component {
                     <img className="text-center" src={data.urlImage} alt="" />
                   </div>
                   <h4 className="pdl-5">{data.tenSach}</h4>
-                  <p className="pdl-5">Tác giả: {data.tacGia}</p>
+                  <p className="pdl-5">
+                    {data.tacGia ? <p>Tác giả: {data.tacGia}</p> : ""}
+                  </p>
                   <h4 className="pdl-5">
                     Giá bìa: {parseInt(data.giaBia).toLocaleString()} đ
                   </h4>
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
       );
     });
@@ -307,7 +328,7 @@ class ListBook extends React.Component {
       const url = `product/${data._id}`;
       return (
         <div className="col-xs-6 col-sm-3 col-md-3 col-lg-3 ">
-          <Link to={url}>
+          <a href={url}>
             <div className="product-image-wrapper">
               <div className="single-products">
                 <div className="productinfo">
@@ -315,14 +336,16 @@ class ListBook extends React.Component {
                     <img className="text-center" src={data.urlImage} alt="" />
                   </div>
                   <h4 className="pdl-5">{data.tenSach}</h4>
-                  <p className="pdl-5">Tác giả: {data.tacGia}</p>
+                  <p className="pdl-5">
+                    {data.tacGia ? <p>Tác giả: {data.tacGia}</p> : ""}
+                  </p>
                   <h4 className="pdl-5">
                     Giá bìa: {parseInt(data.giaBia).toLocaleString()} đ
                   </h4>
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
       );
     });
@@ -475,7 +498,9 @@ class ListBook extends React.Component {
             {dataIs7}
           </div>
         </div>
+        
       </div>
+      
     );
   }
 }

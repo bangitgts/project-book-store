@@ -162,7 +162,7 @@ class Cart extends React.Component {
             )}
           </td>
           <td className="cart_price text-center">
-            <p>{parseInt(data.giaBia).toLocaleString()} đ</p>
+            <p>{parseInt(data.giaBia).toLocaleString()} ₫</p>
           </td>
           <td className="cart_quantity">
             <button
@@ -271,7 +271,9 @@ class Cart extends React.Component {
           </td>
           <td className="cart_total">
             <p className="cart_total_price">
-              {(parseInt(data.giaBia) * parseInt(data.amount)).toLocaleString()}
+              {(
+                parseInt(data.giaBia) * parseInt(data.amount)
+              ).toLocaleString() + " ₫"}
             </p>
           </td>
           <td className="cart_delete">
@@ -317,14 +319,19 @@ class Cart extends React.Component {
         <Header />
         <section id="cart_items">
           <div className="container">
-            <div className="breadcrumbs">
+            <nav>
               <ol className="breadcrumb">
-                <li>
+                <li className="breadcrumb-item">
                   <a href="#">Home</a>
                 </li>
-                <li className="active">Shopping Cart</li>
+                <li className="breadcrumb-item active">
+                  <a href="account">Account</a>
+                </li>
+                <li className="breadcrumb-item active">
+                  <a href="checkout">Checkout</a>
+                </li>
               </ol>
-            </div>
+            </nav>
 
             <table className="col-xs-12 col-sm-12 col-md-12 col-lg-12 cart_info">
               <thead>
@@ -339,9 +346,10 @@ class Cart extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.cartUser.length > 0
-                  ? dataCartlist
-                  : "Ban chua co hang nao"}
+                {this.state.cartUser.length === 0
+                  ? "Tạm thời bạn không có đơn hàng nào"
+                  : ""}
+                {this.state.cartUser.length > 0 ? dataCartlist : ""}
                 {this.state.cartUser.length > 0 ? (
                   <tr>
                     <td className="cart_product">
@@ -352,15 +360,18 @@ class Cart extends React.Component {
                     <td className="cart_description"></td>
                     <td className="cart_price"></td>
                     <td className="cart_total_price">
-                      Tổng thanh toán (
-                      {b !== null
-                        ? String(
-                            b.reduce(function (total, currentValue) {
-                              return total + parseInt(currentValue.amount);
-                            }, 0)
-                          )
-                        : "0"}{" "}
-                      Sản Phẩm)
+                      <h4>
+                        {" "}
+                        Tổng thanh toán (
+                        {b !== null
+                          ? String(
+                              b.reduce(function (total, currentValue) {
+                                return total + parseInt(currentValue.amount);
+                              }, 0)
+                            )
+                          : "0"}{" "}
+                        Sản phẩm)
+                      </h4>
                     </td>
                     <td className="cart_total">
                       <p className="cart_total_price"></p>
@@ -377,9 +388,9 @@ class Cart extends React.Component {
                                       parseInt(currentValue.giaBia)
                                   );
                                 }, 0)
-                                .toLocaleString()
+                                .toLocaleString() + " ₫"
                             )
-                          : "0"}
+                          : "0 ₫"}
                       </p>
                     </td>
                   </tr>
@@ -388,9 +399,29 @@ class Cart extends React.Component {
                 )}
               </tbody>
             </table>
+            <div className="cart_total_price mr-center">
+              <h4 className="text-center">
+                Vui lòng chỉnh sửa thông tin nếu thông tin nhận hàng chưa chính
+                xác
+              </h4>
+              <div className="centreBox">
+                <a href="account">
+                  <button className="cart">
+                    <i className="fa fa-pencil" />
+                    <h4>Chỉnh sửa thông tin</h4>
+                  </button>
+                </a>
+                <a href="account">
+                  <button className="cart">
+                    <i className="fa fa-shopping-cart" />
+                    <h4>Đặt hàng</h4>
+                  </button>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
-
+        <div></div>
         <footer id="footer">
           <ul class="list-inline text-center">
             <li>2021 © Chuyên đề thực tế 2</li>

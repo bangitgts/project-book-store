@@ -147,10 +147,15 @@ class ProductDetail extends React.Component {
                       <div className="gia-bia">
                         <h3>{parseInt(data.giaBia).toLocaleString()} ₫</h3>
                       </div>
-                      <p>Ngày xuất bản: 05-2021</p>
-                      <p>Loại bìa: bìa mềm</p>
-                      <p>Kích thước: 11 x 18 cm</p>
-                      <p>Số trang: 152</p>
+                      {data.tacGia ? <p>Tác giả: {data.tacGia}</p> : ""}
+                      {data.phathanhthang ? (
+                        <p>Phát hành tháng: {data.phathanhthang}</p>
+                      ) : (
+                        ""
+                      )}
+                      {data.nxb ? <p>Ngày xuất bản: {data.nxb}</p> : ""}
+                      {data.khoSach ? <p>Khổ sách: {data.khoSach}</p> : ""}
+                      {data.theLoai ? <p>Thể loại: {data.theLoai}</p> : ""}
                       <p>Chọn số lượng mua:</p>
                       <div className="a">
                         <button onClick={this.tang} className="button-decrease">

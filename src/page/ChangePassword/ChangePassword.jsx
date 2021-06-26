@@ -205,14 +205,14 @@ class ChangePassword extends React.Component {
                             name="passWord"
                             placeholder="Nhập mật khẩu cũ"
                             onChange={this.onChangeText}
-                            require
+                            required
                           />
                           <input
                             type="password"
                             name="newPassword"
                             placeholder="Nhập mật khẩu mới"
                             onChange={this.onChangeText}
-                            require
+                            required
                           />
                           {this.state.newPassword !== "" ? (
                             <i
@@ -229,16 +229,13 @@ class ChangePassword extends React.Component {
                             name="renewPassword"
                             placeholder="Nhập lại mật khẩu mới"
                             onChange={this.onChangeText}
-                            require
+                            required
                           />
                           {checkPassword}
                           {}
                           <button
                             type="submit"
                             className="isdislaybutton btn btn-primary"
-                            onClick={this.onSubmit}
-                            data-toggle="modal"
-                            data-target="#exampleModal"
                           >
                             Submit
                           </button>
