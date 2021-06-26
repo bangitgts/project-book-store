@@ -49,7 +49,7 @@ class Cart extends React.Component {
 
   render() {
     const { cartUser } = this.state;
-
+    const b = cartUser.filter((el) => el.isStatus === "1");
     const dataCartlist = cartUser.map((data, index) => {
       return (
         <tr className={data.isStatus === "0" ? "no-change" : "change-selected"}>
@@ -352,14 +352,35 @@ class Cart extends React.Component {
                     <td className="cart_description"></td>
                     <td className="cart_price"></td>
                     <td className="cart_total_price">
-                      Tổng thanh toán ({this.state.tongSanphamthanhtoan} Sản
-                      Phẩm)
+                      Tổng thanh toán (
+                      {b !== null
+                        ? String(
+                            b.reduce(function (total, currentValue) {
+                              return total + parseInt(currentValue.amount);
+                            }, 0)
+                          )
+                        : "0"}{" "}
+                      Sản Phẩm)
                     </td>
                     <td className="cart_total">
                       <p className="cart_total_price"></p>
                     </td>
                     <td className="cart_total">
-                      <p className="cart_total_price">1,0000,0000</p>
+                      <p className="cart_total_price">
+                        {b.length > 0
+                          ? String(
+                              b
+                                .reduce(function (total, currentValue) {
+                                  return (
+                                    total +
+                                    parseInt(currentValue.amount) *
+                                      parseInt(currentValue.giaBia)
+                                  );
+                                }, 0)
+                                .toLocaleString()
+                            )
+                          : "0"}
+                      </p>
                     </td>
                   </tr>
                 ) : (

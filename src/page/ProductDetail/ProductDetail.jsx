@@ -87,7 +87,6 @@ class ProductDetail extends React.Component {
         return response.data.data;
       })
       .then((data) => {
-        console.log(String(data.moTa).split("\n"));
         this.setState({
           data: data,
         });
@@ -105,7 +104,7 @@ class ProductDetail extends React.Component {
       this.state.countProduct === 5 ? <p>Số lượng thêm tối đa là 5</p> : "";
     const { data } = this.state;
     const c = String(data.moTa).split("\n");
-    console.log(c);
+
     const d = c.map((data) => {
       return <p style={{ fontSize: "19px" }}>{data}</p>;
     });
@@ -198,7 +197,7 @@ class ProductDetail extends React.Component {
                           SƠ LƯỢC VỀ TÁC PHẨM
                         </a>
                       </li>
-                      
+
                       <li>
                         <a href="#reviews" data-toggle="tab">
                           Reviews (5)
@@ -407,7 +406,7 @@ class ProductDetail extends React.Component {
             </div>
           </div>
         </section>
-        <Footer/>
+        <Footer />
       </div>
     );
   }

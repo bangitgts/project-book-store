@@ -3,11 +3,10 @@ import { Component } from "react";
 import { routes } from "./routes";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { PrivateRoute } from "./auth";
-import { ProductDetail } from "./page/ProductDetail";
-import { HomePage } from "./page/HomePage";
+
 import ScrollToTop from "./scrolltotop";
 import { Cart } from "./page/Cart";
-var axios = require("axios");
+
 class App extends Component {
   state = {
     authed: false,
@@ -43,7 +42,7 @@ class App extends Component {
       .catch((error) => console.log("error", error));
   }
   showContent(routes) {
-    var result = null;
+    var result = [];
     if (routes.length > 0) {
       var result = routes.map((route) => {
         return (

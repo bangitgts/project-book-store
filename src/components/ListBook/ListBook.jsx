@@ -1,10 +1,7 @@
-/* eslint-disable import/first */
-/* eslint-disable jsx-a11y/anchor-has-content */
 import React from "react";
-const axios = require("axios");
 import { Link } from "react-router-dom";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import ReactLoading from "react-loading";
+const axios = require("axios");
 class ListBook extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +19,6 @@ class ListBook extends React.Component {
     var config = {
       method: "get",
       url: "http://45.77.12.16:4000/product/loai2",
-      headers: {},
     };
 
     axios(config)
@@ -42,7 +38,6 @@ class ListBook extends React.Component {
     var config = {
       method: "get",
       url: "http://45.77.12.16:4000/product/loai3",
-      headers: {},
     };
 
     axios(config)
@@ -63,7 +58,6 @@ class ListBook extends React.Component {
     var config = {
       method: "get",
       url: "http://45.77.12.16:4000/product/loai4",
-      headers: {},
     };
 
     axios(config)
@@ -84,7 +78,6 @@ class ListBook extends React.Component {
     var config = {
       method: "get",
       url: "http://45.77.12.16:4000/product/loai5",
-      headers: {},
     };
 
     axios(config)
@@ -104,7 +97,6 @@ class ListBook extends React.Component {
     var config = {
       method: "get",
       url: "http://45.77.12.16:4000/product/loai6",
-      headers: {},
     };
 
     axios(config)
@@ -124,7 +116,6 @@ class ListBook extends React.Component {
     var config = {
       method: "get",
       url: "http://45.77.12.16:4000/product/loai7",
-      headers: {},
     };
 
     axios(config)
@@ -178,7 +169,7 @@ class ListBook extends React.Component {
       const url = `product/${data._id}`;
       return (
         <div className="col-xs-6 col-sm-3 col-md-3 col-lg-3 ">
-          <Link to={url}>
+          <a href={url}>
             <div className="product-image-wrapper">
               <div className="single-products">
                 <div className="productinfo">
@@ -193,7 +184,7 @@ class ListBook extends React.Component {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
       );
     });
@@ -357,7 +348,7 @@ class ListBook extends React.Component {
       ) : (
         dataList2
       );
-      const dataIs3 =
+    const dataIs3 =
       loai3.length === 0 ? (
         <ReactLoading
           type="balls"
@@ -368,7 +359,7 @@ class ListBook extends React.Component {
       ) : (
         dataList3
       );
-      const dataIs4 =
+    const dataIs4 =
       loai4.length === 0 ? (
         <ReactLoading
           type="balls"
@@ -379,7 +370,7 @@ class ListBook extends React.Component {
       ) : (
         dataList4
       );
-      const dataIs5 =
+    const dataIs5 =
       loai5.length === 0 ? (
         <ReactLoading
           type="balls"
@@ -390,7 +381,7 @@ class ListBook extends React.Component {
       ) : (
         dataList5
       );
-      const dataIs6 =
+    const dataIs6 =
       loai6.length === 0 ? (
         <ReactLoading
           type="balls"
@@ -401,7 +392,7 @@ class ListBook extends React.Component {
       ) : (
         dataList6
       );
-      const dataIs7 =
+    const dataIs7 =
       loai7.length === 0 ? (
         <ReactLoading
           type="balls"
@@ -468,20 +459,20 @@ class ListBook extends React.Component {
             {dataIs2}
           </div>
           <div className="tab-pane" id="Skynovel">
-          {dataIs3}
+            {dataIs3}
           </div>
 
           <div className="tab-pane" id="Skymommy">
-          {dataIs4}
+            {dataIs4}
           </div>
           <div className="tab-pane" id="tusachsongkhac">
-          {dataIs5}
+            {dataIs5}
           </div>
           <div className="tab-pane" id="tusachchualanh">
-          {dataIs6}
+            {dataIs6}
           </div>
           <div className="tab-pane" id="tusachquyco">
-          {dataIs7}
+            {dataIs7}
           </div>
         </div>
       </div>
