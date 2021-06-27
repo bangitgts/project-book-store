@@ -87,7 +87,7 @@ class LoginPage extends React.Component {
         <div className="page-inner">
           <div id="main-wrapper">
             <div className="row">
-              <div className="col-md-3 center">
+              <div className="col-md-4 center">
                 <div className="panel panel-white" id="js-alerts">
                   <div className="panel-body">
                     <div className="login-box">
@@ -126,13 +126,13 @@ class LoginPage extends React.Component {
                           Đăng nhập
                         </button>
                         <a
-                          href="forgot.html"
+                          href="forgotpassword"
                           className="display-block text-center m-t-md text-sm"
                         >
                           Quên mật khẩu?
                         </a>
                         <a
-                          href="register.html"
+                          href="register"
                           className="btn btn-default btn-block m-t-md"
                         >
                           Tạo Tài Khoản

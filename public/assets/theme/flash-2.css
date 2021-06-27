@@ -1678,7 +1678,6 @@ fieldset[disabled] .btn-danger:hover {
 
 .panel .panel-body {
     position: relative;
-    padding: 20px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0
 }

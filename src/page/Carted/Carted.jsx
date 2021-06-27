@@ -1,21 +1,14 @@
 import React from "react";
 import { Header } from "../Header";
-import ReactNotification from "react-notifications-component";
-import "react-notifications-component/dist/theme.css";
-import { store } from "react-notifications-component";
+
 const axios = require("axios");
 
 class Carted extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      passWord: "",
-      newPassword: "",
-      renewPassword: "",
-      isStatus: "",
       dataUser: [],
     };
-  
   }
 
   componentDidMount() {
@@ -31,6 +24,7 @@ class Carted extends React.Component {
 
     axios(config)
       .then(function (response) {
+        console.log(response);
         return response.data.data;
       })
       .then((data) => {
@@ -50,12 +44,9 @@ class Carted extends React.Component {
       });
   }
 
-  
   render() {
-    
     return (
       <div>
-        <ReactNotification />
         <Header />
         <div className="container">
           <div className="row profile">
