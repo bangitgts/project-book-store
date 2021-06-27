@@ -2,7 +2,7 @@ import React from "react";
 import { HomePage } from "./page/HomePage";
 import { LoginPage } from "./page/LoginPage";
 import { ProductDetail } from "./page/ProductDetail";
-
+import { Carted } from "./page/Carted/Carted";
 
 import { ChangePassword } from "./page/ChangePassword/ChangePassword";
 const routes = [{
@@ -20,6 +20,11 @@ const routes = [{
         path: "/login",
         exact: false,
         main: () => < LoginPage / > ,
+    },
+    {
+        path: "/carted",
+        exact: false,
+        main: () => < Carted / > ,
     }
 ];
 export { routes };
