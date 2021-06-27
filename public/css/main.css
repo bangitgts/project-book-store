@@ -2970,9 +2970,10 @@ h3 {
     transition: 3s;
 }
 
-footer {
+#footer {
+    margin-top: 19%;
+    text-align: center;
     padding: 5px;
-    margin-top: 100px;
     color: rgba(0, 0, 0, 0.7)
 }
 
@@ -3123,4 +3124,21 @@ footer {
 .centreBox {
     width: 27%;
     margin: auto;
+}
+
+.loading-react {
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+}
+
+.loading-center-react {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hieuung {
+    transition: 0.5s;
 }

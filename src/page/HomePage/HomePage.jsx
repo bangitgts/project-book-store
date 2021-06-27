@@ -13,9 +13,8 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="hieuung">
         <Header />
-
         {/*/header*/}
         <section>
           <div className="container">
@@ -192,8 +191,6 @@ class HomePage extends React.Component {
             </div>
           </div>
         </section>
-        {/* FOOTER */}
-
         <footer id="footer">
           <ul class="list-inline text-center">
             <li>2021 © Chuyên đề thực tế 2</li>

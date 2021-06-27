@@ -43,6 +43,7 @@ class InformationAccount extends React.Component {
   // Image/File Submit Handler
   handleSubmitFile = () => {
     if (this.state.image_file !== null) {
+      
       let formData = new FormData();
       formData.append("file", this.state.image_file);
       // the image field name should be similar to your api endpoint field name

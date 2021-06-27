@@ -170,13 +170,13 @@ class ChangePassword extends React.Component {
                 <div className="profile-usermenu">
                   <ul className="nav">
                     <li>
-                      <a href="#">
+                      <a href="account">
                         <i className="glyphicon glyphicon-user" />
                         Tài Khoản của tôi{" "}
                       </a>
                     </li>
                     <li className="active">
-                      <a href="#">
+                      <a href="changepassword">
                         <i className="glyphicon glyphicon-pencil" />
                         Đổi mật khẩu{" "}
                       </a>

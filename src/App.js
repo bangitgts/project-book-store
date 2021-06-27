@@ -3,9 +3,10 @@ import { Component } from "react";
 import { routes } from "./routes";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { PrivateRoute } from "./auth";
-
 import ScrollToTop from "./scrolltotop";
 import { Cart } from "./page/Cart";
+import { ChangePassword } from "./page/ChangePassword/ChangePassword";
+import { InformationAccount } from "./page/InformationAccount/InformationAccount";
 
 class App extends Component {
   state = {
@@ -57,6 +58,18 @@ class App extends Component {
     return (
       <Router>
         <ScrollToTop /> {this.showContent(routes)}{" "}
+        <PrivateRoute
+          exact
+          authed
+          path="/changepassword"
+          component={ChangePassword}
+        />{" "}
+        <PrivateRoute
+          exact
+          authed
+          path="/account"
+          component={InformationAccount}
+        />{" "}
         <PrivateRoute exact authed path="/checkout" component={Cart} />{" "}
       </Router>
     );

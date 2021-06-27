@@ -1,7 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { HeaderTop } from "../HeaderTop";
 import { Link } from "react-router-dom";
+import ReactLoading from "react-loading";
+
 var axios = require("axios");
 class Header extends React.Component {
   constructor(props) {
@@ -27,32 +28,29 @@ class Header extends React.Component {
         return response.data;
       })
       .then((data) => {
-
         this.setState({ auth: true, data: data });
       })
       .catch(function (error) {});
-    
   }
+
   logOut() {
     localStorage.removeItem("auth-token");
     window.location = "/";
   }
-  render() {
 
-    const authLoginregister = this.state.auth ? (
+  render() {
+   
+    const authLoginregister = localStorage.getItem("auth-token") !== null ? (
       <ul className="nav navbar-nav pull-right">
         <li>
           <a href="/checkout">
             <i className="fa fa-shopping-cart" />
-     
-            {/* <sup className="cart-sup">{this.state.data.data.cart.length}</sup> */}
           </a>
         </li>
         <li className="dropdown">
           <a href="#">
             <i className="fa fa-user" />
             <span> </span>
-            {this.state.data.data.email}
           </a>
           <ul role="menu" className="sub-menu">
             <li>
@@ -151,15 +149,6 @@ class Header extends React.Component {
                   </ul>
                 </div>
                 <div className="mainmenu">
-                  {/* <li><a href="#"><i class="fa fa-user"></i> Account</a></li> */}
-                  {/* <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> */}
-                  {/* <li>
-                            <a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a>
-                        </li> */}
-                  {/* <li>
-                            <a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a>
-                        </li> */}
-
                   {authLoginregister}
                 </div>
               </div>

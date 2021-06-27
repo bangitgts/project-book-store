@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Header } from "../Header";
-import { Footer } from "../Footer";
+import ReactLoading from "react-loading";
 const axios = require("axios");
 const qs = require("qs");
+
 class Cart extends React.Component {
   constructor(props) {
     super(props);
@@ -12,14 +13,6 @@ class Cart extends React.Component {
       tongSanphamthanhtoan: "",
       tongTienthanhtoan: "",
     };
-    this.onDelete = this.onDelete.bind(this);
-  }
-  onDelete(e) {
-    console.log(e);
-  }
-
-  giam() {
-    console.log("b");
   }
   componentDidMount() {
     var data = qs.stringify({});
@@ -314,119 +307,135 @@ class Cart extends React.Component {
         </tr>
       );
     });
+
     return (
       <div>
-        <Header />
-        <section id="cart_items">
-          <div className="container">
-            <nav>
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <a href="#">Home</a>
-                </li>
-                <li className="breadcrumb-item active">
-                  <a href="account">Account</a>
-                </li>
-                <li className="breadcrumb-item active">
-                  <a href="checkout">Checkout</a>
-                </li>
-              </ol>
-            </nav>
-
-            <table className="col-xs-12 col-sm-12 col-md-12 col-lg-12 cart_info">
-              <thead>
-                <tr className="cart_menu">
-                  <td className="image"></td>
-                  <td className="description">Tên Sách</td>
-                  <td className="chonmua text-center">Chọn</td>
-                  <td className="price text-center">Giá</td>
-                  <td className="quantity">Số Lượng</td>
-                  <td className="total">Tổng Tiền</td>
-                  <td />
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.cartUser.length === 0
-                  ? "Tạm thời bạn không có đơn hàng nào"
-                  : ""}
-                {this.state.cartUser.length > 0 ? dataCartlist : ""}
-                {this.state.cartUser.length > 0 ? (
-                  <tr>
-                    <td className="cart_product">
-                      <a href>
-                        <img src="" alt="" />
-                      </a>
-                    </td>
-                    <td className="cart_description"></td>
-                    <td className="cart_price"></td>
-                    <td className="cart_total_price">
-                      <h4>
-                        {" "}
-                        Tổng thanh toán (
-                        {b !== null
-                          ? String(
-                              b.reduce(function (total, currentValue) {
-                                return total + parseInt(currentValue.amount);
-                              }, 0)
-                            )
-                          : "0"}{" "}
-                        Sản phẩm)
-                      </h4>
-                    </td>
-                    <td className="cart_total">
-                      <p className="cart_total_price"></p>
-                    </td>
-                    <td className="cart_total">
-                      <p className="cart_total_price">
-                        {b.length > 0
-                          ? String(
-                              b
-                                .reduce(function (total, currentValue) {
-                                  return (
-                                    total +
-                                    parseInt(currentValue.amount) *
-                                      parseInt(currentValue.giaBia)
-                                  );
-                                }, 0)
-                                .toLocaleString() + " ₫"
-                            )
-                          : "0 ₫"}
-                      </p>
-                    </td>
-                  </tr>
-                ) : (
-                  ""
-                )}
-              </tbody>
-            </table>
-            <div className="cart_total_price mr-center">
-              <h4 className="text-center">
-                Vui lòng chỉnh sửa thông tin nếu thông tin nhận hàng chưa chính
-                xác
-              </h4>
-              <div className="centreBox">
-                <a href="account">
-                  <button className="cart">
-                    <i className="fa fa-pencil" />
-                    <h4>Chỉnh sửa thông tin</h4>
-                  </button>
-                </a>
-                <a href="account">
-                  <button className="cart">
-                    <i className="fa fa-shopping-cart" />
-                    <h4>Đặt hàng</h4>
-                  </button>
-                </a>
-              </div>
+        {this.state.tongSanphamthanhtoan.length === 0 ? (
+          <div className="loading-react">
+            <div className="loading-center-react">
+              <ReactLoading
+                type="balls"
+                color="#D95B35"
+                height={"100px"}
+                width={"100px"}
+              />
             </div>
           </div>
-        </section>
-        <div></div>
-        <footer id="footer">
-          <ul class="list-inline text-center">
-            <li>2021 © Chuyên đề thực tế 2</li>
-          </ul>
-        </footer>
+        ) : (
+          <div className="hieuung">
+            <Header />
+            <section id="cart_items">
+              <div className="container">
+                <nav>
+                  <ol className="breadcrumb">
+                    <li className="breadcrumb-item">
+                      <a href="#">Home</a>
+                    </li>
+                    <li className="breadcrumb-item active">
+                      <a href="account">Account</a>
+                    </li>
+                    <li className="breadcrumb-item active">
+                      <a href="checkout">Checkout</a>
+                    </li>
+                  </ol>
+                </nav>
+
+                <table className="col-xs-12 col-sm-12 col-md-12 col-lg-12 cart_info">
+                  <thead>
+                    <tr className="cart_menu">
+                      <td className="image"></td>
+                      <td className="description">Tên Sách</td>
+                      <td className="chonmua text-center">Chọn</td>
+                      <td className="price text-center">Giá</td>
+                      <td className="quantity">Số Lượng</td>
+                      <td className="total">Tổng Tiền</td>
+                      <td />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.cartUser.length === 0
+                      ? "Tạm thời bạn không có đơn hàng nào"
+                      : ""}
+                    {this.state.cartUser.length > 0 ? dataCartlist : ""}
+                    {this.state.cartUser.length > 0 ? (
+                      <tr>
+                        <td className="cart_product">
+                          <a href>
+                            <img src="" alt="" />
+                          </a>
+                        </td>
+                        <td className="cart_description"></td>
+                        <td className="cart_price"></td>
+                        <td className="cart_total_price">
+                          <h4>
+                            {" "}
+                            Tổng thanh toán (
+                            {b !== null
+                              ? String(
+                                  b.reduce(function (total, currentValue) {
+                                    return (
+                                      total + parseInt(currentValue.amount)
+                                    );
+                                  }, 0)
+                                )
+                              : "0"}{" "}
+                            Sản phẩm)
+                          </h4>
+                        </td>
+                        <td className="cart_total">
+                          <p className="cart_total_price"></p>
+                        </td>
+                        <td className="cart_total">
+                          <p className="cart_total_price">
+                            {b.length > 0
+                              ? String(
+                                  b
+                                    .reduce(function (total, currentValue) {
+                                      return (
+                                        total +
+                                        parseInt(currentValue.amount) *
+                                          parseInt(currentValue.giaBia)
+                                      );
+                                    }, 0)
+                                    .toLocaleString() + " ₫"
+                                )
+                              : "0 ₫"}
+                          </p>
+                        </td>
+                      </tr>
+                    ) : (
+                      ""
+                    )}
+                  </tbody>
+                </table>
+                <div className="cart_total_price mr-center">
+                  <h4 className="text-center">
+                    Vui lòng chỉnh sửa thông tin nếu thông tin nhận hàng chưa
+                    chính xác
+                  </h4>
+                  <div className="centreBox">
+                    <a href="account">
+                      <button className="cart">
+                        <i className="fa fa-pencil" />
+                        <h4>Chỉnh sửa thông tin</h4>
+                      </button>
+                    </a>
+                    <a href="account">
+                      <button className="cart">
+                        <i className="fa fa-shopping-cart" />
+                        <h4>Đặt hàng</h4>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <div></div>
+            <footer id="footer">
+              <p>2021 © Chuyên đề thực tế 2</p>
+            </footer>
+          </div>
+        )}
       </div>
     );
   }
