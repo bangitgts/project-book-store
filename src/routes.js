@@ -6,6 +6,7 @@ import { Carted } from "./page/Carted/Carted";
 
 import { ChangePassword } from "./page/ChangePassword/ChangePassword";
 import { RegisterPage } from "./page/RegisterPage";
+import { ForgotPassword } from "./page/ForgotPassword";
 const routes = [{
         path: "/",
         exact: true,
@@ -31,6 +32,11 @@ const routes = [{
         path: "/register",
         exact: false,
         main: () => < RegisterPage / > ,
+    },
+    {
+        path: "/forgotpassword",
+        exact: false,
+        main: () => < ForgotPassword / > ,
     }
 ];
 export { routes };

@@ -2,85 +2,57 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
+import ReCAPTCHA from "react-google-recaptcha";
 import { store } from "react-notifications-component";
+
 const axios = require("axios");
 const qs = require("qs");
-class LoginPage extends React.Component {
+
+class ForgotPassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: "",
-      redirect: false,
-      wrongPassword: false,
+      isVerified: false,
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this);
+    this.verifyCallback = this.verifyCallback.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
+  componentDidMount() {}
   handleChange(e) {
     const { name, value } = e.target;
     console.log(value);
     this.setState({ [name]: value });
   }
+  onLoadRecaptcha() {
+    if (this.captchaDemo) {
+      this.captchaDemo.reset();
+      this.setState({
+        isVerified: false,
+      });
+    }
+  }
+
+  verifyCallback(recaptchaToken) {
+    if (recaptchaToken === null) {
+      this.setState({
+        isVerified: false,
+      });
+    } else {
+      this.setState({
+        isVerified: true,
+      });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    const { email, password } = this.state;
-
-    var data = qs.stringify({
-      email: email,
-      password: password,
-    });
-    var config = {
-      method: "post",
-      url: "http://45.77.12.16:4000/account/login",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then(function (response) {
-        return response.data;
-      })
-      .then((response) => {
-        if (response.status === 200) {
-          localStorage.setItem("auth-token", response.data.token);
-          this.setState({
-            redirect: true,
-          });
-        }
-       
-      })
-      .catch((err) => {
-        if (err.response.data.status === 400) {
-          this.setState({
-            wrongPassword: true,
-          });
-          store.addNotification({
-            title: "Bạn nhập sai tài khoản hoặc mật khẩu!",
-            message: "Vui lòng kiểm tra lại",
-            type: "danger",
-            insert: "top",
-            container: "top-center",
-            dismiss: {
-              duration: 10000,
-              onScreen: true,
-              showIcon: true,
-            },
-          })
-        }
-      });
+    
   }
 
   render() {
-    
-    if (localStorage.getItem("auth-token")) {
-      return <Redirect to="/" />;
-    }
-    if (this.state.redirect === true) {
-      return <Redirect to="/" />;
-    }
     return (
       <div className="page-content page-login">
         <ReactNotification />
@@ -93,10 +65,10 @@ class LoginPage extends React.Component {
                     <div className="login-box">
                       <h2 className="text-lg text-center m-t-xs">BOOK STORE</h2>
                       <p className="text-center m-t-md">
-                        Vui lòng nhập email & mật khẩu
-                        <br></br> để đăng nhập
+                        Nhập email của bạn để lấy lại mật khẩu
                       </p>
                       <form className="m-t-md" onSubmit={this.handleSubmit}>
+                        
                         <div className="form-group">
                           <input
                             type="email"
@@ -107,23 +79,20 @@ class LoginPage extends React.Component {
                             required
                           />
                         </div>
-                        <div className="form-group">
-                          <input
-                            type="password"
-                            name="password"
-                            className="form-control password"
-                            placeholder="Nhập mật khẩu của bạn"
-                            onChange={this.handleChange}
-                            required
-                          />
-                        </div>
-
-
+                        
+                        <ReCAPTCHA
+                          sitekey="6Ld55F0bAAAAAE2JZ9lo1razwPyfUiaMEvBvDbUV"
+                          onChange={this.onChangeCaptcha}
+                          render="explicit"
+                          onloadCallback={this.onLoadRecaptcha}
+                          onChange={this.verifyCallback}
+                        />
+                        ,
                         <button
                           type="submit"
                           className="btn btn-login btn-block"
                         >
-                          Đăng nhập
+                          Đăng ký
                         </button>
                         <a
                           href="forgotpassword"
@@ -132,10 +101,10 @@ class LoginPage extends React.Component {
                           Quên mật khẩu?
                         </a>
                         <a
-                          href="register"
+                          href="login"
                           className="btn btn-default btn-block m-t-md"
                         >
-                          Tạo Tài Khoản
+                          Đăng nhập tài khoản
                         </a>
                       </form>
                       <p className="text-center m-t-xs text-sm">2021 © Books</p>
@@ -154,4 +123,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export { LoginPage };
+export { ForgotPassword };

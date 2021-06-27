@@ -225,7 +225,7 @@ class RegisterPage extends React.Component {
                           href="login"
                           className="btn btn-default btn-block m-t-md"
                         >
-                          Tạo Tài Khoản
+                          Đăng nhập tài khoản
                         </a>
                       </form>
                       <p className="text-center m-t-xs text-sm">2021 © Books</p>
