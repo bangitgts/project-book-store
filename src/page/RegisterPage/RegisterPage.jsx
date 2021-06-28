@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import createBrowserHistory from 'history/createBrowserHistory';
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -17,13 +18,13 @@ class RegisterPage extends React.Component {
       password: "",
       repassword: "",
       isVerified: false,
+      redirect: false,
     };
     this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-  componentDidMount() {}
   handleChange(e) {
     const { name, value } = e.target;
     console.log(value);
@@ -56,7 +57,6 @@ class RegisterPage extends React.Component {
       this.state.isVerified &&
       this.state.password === this.state.repassword
     ) {
-      console.log("abc");
       var data = qs.stringify({
         name: this.state.name,
         email: this.state.email,
@@ -73,11 +73,11 @@ class RegisterPage extends React.Component {
 
       axios(config)
         .then(function (response) {
-            console.log(response)
+          console.log(response);
           if (response.status === 200) {
             store.addNotification({
               title: "Chúc mừng bạn đã đăng ký thành công",
-              message: "Mời đăng nhập ngay để sử dụng dịch vụ",
+              message: "Bạn sẽ được chuyển ngay đến trang login",
               type: "success",
               insert: "top",
               container: "top-center",
@@ -87,7 +87,7 @@ class RegisterPage extends React.Component {
                 showIcon: true,
               },
             });
-          } else if(response.status === 400) {
+          } else if (response.status === 400) {
             store.addNotification({
               title: "Email này đã được đăng ký",
               message: "Xin vui lòng chọn email khác",
@@ -102,6 +102,11 @@ class RegisterPage extends React.Component {
             });
           }
         })
+        .then((data) =>
+          this.setState({
+            redirect: true,
+          })
+        )
         .catch(function (error) {
           store.addNotification({
             title: "Email này đã được đăng ký",
@@ -146,6 +151,14 @@ class RegisterPage extends React.Component {
   }
 
   render() {
+
+    const {redirect} = this.state;
+    if(redirect){
+      window.setTimeout(function() {
+        window.location.href = "login";
+        }, 3000);
+    }
+
     return (
       <div className="page-content page-login">
         <ReactNotification />
