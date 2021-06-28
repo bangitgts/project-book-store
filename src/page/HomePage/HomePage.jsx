@@ -2,7 +2,7 @@ import React from "react";
 import { Header } from "../Header";
 import { Search } from "../Search";
 import { ListBook } from "../../components/ListBook";
-import { Redirect } from "react-router-dom";
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ class HomePage extends React.Component {
                     fontWeight: "bold",
                   }}
                 >
-                  Online book's store
+                  ONLINE BOOK'S STORE
                 </h1>
               </div>
               {/* Thanh Search */}
