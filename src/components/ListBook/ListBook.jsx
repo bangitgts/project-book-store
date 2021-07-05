@@ -13,7 +13,13 @@ class ListBook extends React.Component {
       loai5: [],
       loai6: [],
       loai7: [],
+      searchname: ""
     };
+    this.onChange = this.onChange.bind(this);
+  }
+  onChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   }
   loai2() {
     var config = {
@@ -158,6 +164,7 @@ class ListBook extends React.Component {
     this.loai7();
   }
   render() {
+    
     const { loai1 } = this.state;
     const { loai2 } = this.state;
     const { loai3 } = this.state;
@@ -165,6 +172,8 @@ class ListBook extends React.Component {
     const { loai5 } = this.state;
     const { loai6 } = this.state;
     const { loai7 } = this.state;
+    const loai = loai1.concat(loai2,loai3,loai4,loai5,loai6,loai7);
+    console.log(loai);
     const dataList1 = loai1.map((data) => {
       const url = `product/${data._id}`;
       return (
@@ -427,80 +436,101 @@ class ListBook extends React.Component {
         dataList7
       );
     return (
-      <div className="category-tab shop-details-tab">
-        {/*category-tab*/}
-        <div className="col-sm-12">
-          <ul className="nav nav-tabs">
-            <li className="active">
-              <a href="#Skybooks" data-toggle="tab">
-                Skybooks
-              </a>
-            </li>
-
-            <li>
-              <a href="#Skycomics" data-toggle="tab">
-                Skycomics
-              </a>
-            </li>
-
-            <li onClick={() => console.log("abc")}>
-              <a href="#Skynovel" data-toggle="tab">
-                Skynovel
-              </a>
-            </li>
-
-            <li>
-              <a href="#Skymommy" data-toggle="tab">
-                Skymommy
-              </a>
-            </li>
-
-            <li>
-              <a href="#tusachsongkhac" data-toggle="tab">
-                Tủ sách Sống Khác
-              </a>
-            </li>
-
-            <li>
-              <a href="#tusachchualanh" data-toggle="tab">
-                Tủ Sách Chữa Lành
-              </a>
-            </li>
-
-            <li>
-              <a href="#tusachquyco" data-toggle="tab">
-                Tủ Sách Qúy Cô
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="tab-content">
-          <div className="tab-pane fade active in" id="Skybooks">
-            {dataIs1}
-          </div>
-          <div className="tab-pane" id="Skycomics">
-            {dataIs2}
-          </div>
-          <div className="tab-pane" id="Skynovel">
-            {dataIs3}
-          </div>
-
-          <div className="tab-pane" id="Skymommy">
-            {dataIs4}
-          </div>
-          <div className="tab-pane" id="tusachsongkhac">
-            {dataIs5}
-          </div>
-          <div className="tab-pane" id="tusachchualanh">
-            {dataIs6}
-          </div>
-          <div className="tab-pane" id="tusachquyco">
-            {dataIs7}
-          </div>
-        </div>
-        
-      </div>
       
+      <div>
+        <div className="s131">
+          <form>
+            <div className="inner-form">
+              <div className="input-field first-wrap">
+                <input
+                  id="search"
+                  type="text"
+                  name="searchname"
+                  placeholder="What book are you looking for?"
+                  onChange = {this.onChange}
+                />
+              </div>
+              <div className="input-field third-wrap">
+                <button className="btn-search" type="button">
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div className="category-tab shop-details-tab">
+          {/*category-tab*/}
+          <div className="col-sm-12">
+            <ul className="nav nav-tabs">
+              <li className="active">
+                <a href="#Skybooks" data-toggle="tab">
+                  Skybooks
+                </a>
+              </li>
+
+              <li>
+                <a href="#Skycomics" data-toggle="tab">
+                  Skycomics
+                </a>
+              </li>
+
+              <li onClick={() => console.log("abc")}>
+                <a href="#Skynovel" data-toggle="tab">
+                  Skynovel
+                </a>
+              </li>
+
+              <li>
+                <a href="#Skymommy" data-toggle="tab">
+                  Skymommy
+                </a>
+              </li>
+
+              <li>
+                <a href="#tusachsongkhac" data-toggle="tab">
+                  Tủ sách Sống Khác
+                </a>
+              </li>
+
+              <li>
+                <a href="#tusachchualanh" data-toggle="tab">
+                  Tủ Sách Chữa Lành
+                </a>
+              </li>
+
+              <li>
+                <a href="#tusachquyco" data-toggle="tab">
+                  Tủ Sách Quý Cô
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="tab-content">
+            <div className="tab-pane fade active in" id="Skybooks">
+              {dataIs1}
+            </div>
+            <div className="tab-pane" id="Skycomics">
+              {dataIs2}
+            </div>
+            <div className="tab-pane" id="Skynovel">
+              {dataIs3}
+            </div>
+
+            <div className="tab-pane" id="Skymommy">
+              {dataIs4}
+            </div>
+            <div className="tab-pane" id="tusachsongkhac">
+              {dataIs5}
+            </div>
+            <div className="tab-pane" id="tusachchualanh">
+              {dataIs6}
+            </div>
+            <div className="tab-pane" id="tusachquyco">
+              {dataIs7}
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

@@ -2,6 +2,9 @@
 import React from "react";
 import { Header } from "../Header";
 import ReactLoading from "react-loading";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
 const axios = require("axios");
 const qs = require("qs");
 
@@ -12,7 +15,9 @@ class Cart extends React.Component {
       cartUser: [],
       tongSanphamthanhtoan: "",
       tongTienthanhtoan: "",
+      redirect: false,
     };
+    this.onDatHang = this.onDatHang.bind(this);
   }
   componentDidMount() {
     var data = qs.stringify({});
@@ -40,7 +45,58 @@ class Cart extends React.Component {
       });
   }
 
+  onDatHang() {
+    var config = {
+      method: "post",
+      url: "http://45.77.12.16:4000/product/payment",
+      headers: {
+        "auth-token": localStorage.getItem("auth-token"),
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        return response.data;
+      })
+      .then((data) => {
+        this.setState({
+          redirect: true,
+        });
+        store.addNotification({
+          title: "Chúc mừng!!!",
+          message: "Bạn đã đặt hàng thành công",
+          type: "success",
+          insert: "top",
+          container: "top-center",
+          dismiss: {
+            duration: 10000,
+            onScreen: true,
+            showIcon: true,
+          },
+        });
+      })
+      .catch(function (error) {
+        store.addNotification({
+          title: "Chưa đặt được hàng!",
+          message: "Mời kiểm tra lại",
+          type: "waring",
+          insert: "top",
+          container: "top-center",
+          dismiss: {
+            duration: 10000,
+            onScreen: true,
+            showIcon: true,
+          },
+        });
+      });
+  }
+
   render() {
+    if (this.state.redirect) {
+      window.setTimeout(function () {
+        window.location.href = "/checkout";
+      }, 500);
+    }
     const { cartUser } = this.state;
     const b = cartUser.filter((el) => el.isStatus === "1");
     const dataCartlist = cartUser.map((data, index) => {
@@ -310,6 +366,7 @@ class Cart extends React.Component {
 
     return (
       <div>
+        <ReactNotification />
         {this.state.tongSanphamthanhtoan.length === 0 ? (
           <div className="loading-react">
             <div className="loading-center-react">
@@ -420,12 +477,11 @@ class Cart extends React.Component {
                         <h4>Chỉnh sửa thông tin</h4>
                       </button>
                     </a>
-                    <a href="account">
-                      <button className="cart">
-                        <i className="fa fa-shopping-cart" />
-                        <h4>Đặt hàng</h4>
-                      </button>
-                    </a>
+
+                    <button onClick={this.onDatHang} className="cart">
+                      <i className="fa fa-shopping-cart" />
+                      <h4>Đặt hàng</h4>
+                    </button>
                   </div>
                 </div>
               </div>

@@ -8,6 +8,8 @@ class Carted extends React.Component {
     super(props);
     this.state = {
       dataUser: [],
+      carted: [],
+     
     };
   }
 
@@ -30,6 +32,7 @@ class Carted extends React.Component {
       .then((data) => {
         this.setState({
           dataUser: data,
+          carted: data.carted,
           image_preview: data.imagePerson,
           name: data.name,
           address: data.address,
@@ -45,6 +48,33 @@ class Carted extends React.Component {
   }
 
   render() {
+  
+    const dataList = this.state.carted.map((el) => {
+      return (
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 carted-selected">
+          <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2 image-carted">
+            <img
+              src={el.urlImage}
+              alt=""
+            />
+          </div>
+
+          <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>{el.tenSach}</h4>
+            <p>Tác giả: {el.tacGia}</p>
+          </div>
+          <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <p>{el.amount}</p>
+          </div>
+          <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <p>{parseInt(el.giaBia).toLocaleString()} đ</p>
+          </div>
+          <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <p>{el.datePayment.slice(0,10)}</p>
+          </div>
+        </div>
+      );
+    });
     return (
       <div>
         <Header />
@@ -113,51 +143,8 @@ class Carted extends React.Component {
                     NGÀY MUA
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 carted-selected">
-                  <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2 image-carted">
-                    <img
-                      src="http://skybooks.vn/wp-content/themes/skybooks/thumb.php?src=/wp-content/uploads/2021/05/sach-tam-an-at-binh-an.jpg&w=226&h=366&q=100"
-                      alt=""
-                    />
-                  </div>
 
-                  <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <h4>Buồn Treo Góc Tủ Chuyện Cũ Phai Mờ</h4>
-                    <p>Tác giả: ABCXYZ</p>
-                  </div>
-                  <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <h4>19</h4>
-                  </div>
-                  <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <h4>1290109</h4>
-                  </div>
-                  <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <h4>25/5/200</h4>
-                  </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 carted-selected">
-                  <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2 image-carted">
-                    <img
-                      src="http://skybooks.vn/wp-content/themes/skybooks/thumb.php?src=/wp-content/uploads/2021/05/sach-tam-an-at-binh-an.jpg&w=226&h=366&q=100"
-                      alt=""
-                    />
-                  </div>
-
-                  <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <h4>Buồn Treo Góc Tủ Chuyện Cũ Phai Mờ</h4>
-                    <p>Tác giả: ABCXYZ</p>
-                  </div>
-                  <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <h4>19</h4>
-                  </div>
-                  <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <h4>1290109</h4>
-                  </div>
-                  <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <h4>25/5/200</h4>
-                  </div>
-                </div>
+                {dataList}
 
                 {/* /.main-content */}
               </div>

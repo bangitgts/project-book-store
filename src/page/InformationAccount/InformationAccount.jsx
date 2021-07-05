@@ -246,7 +246,7 @@ class InformationAccount extends React.Component {
                       </a>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <a href="carted" target="_blank">
                         <i className="glyphicon glyphicon-ok " />
                         Đơn mua{" "}
                       </a>

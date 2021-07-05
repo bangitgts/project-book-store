@@ -89,8 +89,8 @@ class Header extends React.Component {
                 <div className="logo pull-left">
                   <a href="/">
                     <img
-                      style={{ height: "30px" }}
-                      src="https://i1.wp.com/www.writefromscratch.com/wp-content/uploads/2018/12/demo-logo.png?ssl=1"
+                      style={{ width: "120px" }}
+                      src="http://itcode.vn/logoabc.png"
                       alt=""
                     />
                   </a>
@@ -125,23 +125,6 @@ class Header extends React.Component {
                         Book
                         <i className="fa fa-angle-down" />
                       </a>
-                      <ul role="menu" className="sub-menu">
-                        <li>
-                          <a href="shop.html">Products</a>
-                        </li>
-                        <li>
-                          <a href="product-details.html">Product Details</a>
-                        </li>
-                        <li>
-                          <a href="checkout.html">Checkout</a>
-                        </li>
-                        <li>
-                          <a href="cart.html">Cart</a>
-                        </li>
-                        <li>
-                          <Link to="/login">Login</Link>
-                        </li>
-                      </ul>
                     </li>
                     <li>
                       <a href="contact-us.html">Contact</a>
