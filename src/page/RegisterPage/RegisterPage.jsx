@@ -64,7 +64,7 @@ class RegisterPage extends React.Component {
       });
       var config = {
         method: "post",
-        url: "http://45.77.12.16:4000/account/register",
+        url: "http://itcode.vn:4000/account/register",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },

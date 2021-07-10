@@ -56,7 +56,7 @@ class ProductDetail extends React.Component {
       });
       var config = {
         method: "post",
-        url: `http://45.77.12.16:4000/product/add/${this.props.match.params.id}`,
+        url: `http://itcode.vn:4000/product/add/${this.props.match.params.id}`,
         headers: {
           "auth-token": localStorage.getItem("auth-token"),
           "Content-Type": "application/x-www-form-urlencoded",
@@ -75,7 +75,7 @@ class ProductDetail extends React.Component {
   }
 
   componentDidMount() {
-    const url = "http://45.77.12.16:4000/product/show/";
+    const url = "http://itcode.vn:4000/product/show/";
     const id = this.props.match.params.id;
     const urlFull = url + id;
     var config = {

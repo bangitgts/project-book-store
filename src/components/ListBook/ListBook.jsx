@@ -24,7 +24,7 @@ class ListBook extends React.Component {
   loai2() {
     var config = {
       method: "get",
-      url: "http://45.77.12.16:4000/product/loai2",
+      url: "http://45.77.252.163:4000/product/loai2",
     };
 
     axios(config)
@@ -43,7 +43,7 @@ class ListBook extends React.Component {
   loai3() {
     var config = {
       method: "get",
-      url: "http://45.77.12.16:4000/product/loai3",
+      url: "http://45.77.252.163:4000/product/loai3",
     };
 
     axios(config)
@@ -63,7 +63,7 @@ class ListBook extends React.Component {
   loai4() {
     var config = {
       method: "get",
-      url: "http://45.77.12.16:4000/product/loai4",
+      url: "http://45.77.252.163:4000/product/loai4",
     };
 
     axios(config)
@@ -83,7 +83,7 @@ class ListBook extends React.Component {
   loai5() {
     var config = {
       method: "get",
-      url: "http://45.77.12.16:4000/product/loai5",
+      url: "http://45.77.252.163:4000/product/loai5",
     };
 
     axios(config)
@@ -102,7 +102,7 @@ class ListBook extends React.Component {
   loai6() {
     var config = {
       method: "get",
-      url: "http://45.77.12.16:4000/product/loai6",
+      url: "http://45.77.252.163:4000/product/loai6",
     };
 
     axios(config)
@@ -121,7 +121,7 @@ class ListBook extends React.Component {
   loai7() {
     var config = {
       method: "get",
-      url: "http://45.77.12.16:4000/product/loai7",
+      url: "http://45.77.252.163:4000/product/loai7",
     };
 
     axios(config)
@@ -140,7 +140,7 @@ class ListBook extends React.Component {
   componentDidMount() {
     var config = {
       method: "get",
-      url: "http://45.77.12.16:4000/product/loai1",
+      url: "http://45.77.252.163:4000/product/loai1",
       headers: {},
     };
 
