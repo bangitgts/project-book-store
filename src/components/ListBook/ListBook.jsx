@@ -24,7 +24,7 @@ class ListBook extends React.Component {
   loai2() {
     var config = {
       method: "get",
-      url: "http://45.77.252.163:4000/product/loai2",
+      url: "https://45.77.252.163:4000/product/loai2",
     };
 
     axios(config)
@@ -43,7 +43,7 @@ class ListBook extends React.Component {
   loai3() {
     var config = {
       method: "get",
-      url: "http://45.77.252.163:4000/product/loai3",
+      url: "https://45.77.252.163:4000/product/loai3",
     };
 
     axios(config)
@@ -63,7 +63,7 @@ class ListBook extends React.Component {
   loai4() {
     var config = {
       method: "get",
-      url: "http://45.77.252.163:4000/product/loai4",
+      url: "https://45.77.252.163:4000/product/loai4",
     };
 
     axios(config)
@@ -83,7 +83,7 @@ class ListBook extends React.Component {
   loai5() {
     var config = {
       method: "get",
-      url: "http://45.77.252.163:4000/product/loai5",
+      url: "https://45.77.252.163:4000/product/loai5",
     };
 
     axios(config)
@@ -102,7 +102,7 @@ class ListBook extends React.Component {
   loai6() {
     var config = {
       method: "get",
-      url: "http://45.77.252.163:4000/product/loai6",
+      url: "https://45.77.252.163:4000/product/loai6",
     };
 
     axios(config)
@@ -121,7 +121,7 @@ class ListBook extends React.Component {
   loai7() {
     var config = {
       method: "get",
-      url: "http://45.77.252.163:4000/product/loai7",
+      url: "https://45.77.252.163:4000/product/loai7",
     };
 
     axios(config)
@@ -137,11 +137,10 @@ class ListBook extends React.Component {
         console.log(error);
       });
   }
-  componentDidMount() {
+  loai1() {
     var config = {
       method: "get",
-      url: "http://45.77.252.163:4000/product/loai1",
-      headers: {},
+      url: "https://45.77.252.163:4000/product/loai1",
     };
 
     axios(config)
@@ -156,6 +155,9 @@ class ListBook extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+  }
+  componentDidMount() {
+    this.loai1();
     this.loai2();
     this.loai3();
     this.loai4();
@@ -173,7 +175,6 @@ class ListBook extends React.Component {
     const { loai6 } = this.state;
     const { loai7 } = this.state;
     const loai = loai1.concat(loai2,loai3,loai4,loai5,loai6,loai7);
-    console.log(loai);
     const dataList1 = loai1.map((data) => {
       const url = `product/${data._id}`;
       return (
@@ -474,7 +475,7 @@ class ListBook extends React.Component {
                 </a>
               </li>
 
-              <li onClick={() => console.log("abc")}>
+              <li>
                 <a href="#Skynovel" data-toggle="tab">
                   Skynovel
                 </a>

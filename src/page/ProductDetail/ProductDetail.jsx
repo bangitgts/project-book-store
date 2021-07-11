@@ -56,7 +56,7 @@ class ProductDetail extends React.Component {
       });
       var config = {
         method: "post",
-        url: `http://itcode.vn:4000/product/add/${this.props.match.params.id}`,
+        url: `https://itcode.vn:4000/product/add/${this.props.match.params.id}`,
         headers: {
           "auth-token": localStorage.getItem("auth-token"),
           "Content-Type": "application/x-www-form-urlencoded",
