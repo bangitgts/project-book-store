@@ -20,7 +20,7 @@ class ChangePassword extends React.Component {
   }
 
   componentDidMount() {
-    const url = "http://45.77.12.16:4000/account";
+    const url = "https://45.77.12.16:4000/account";
     var config = {
       method: "get",
       url: url,
@@ -69,7 +69,7 @@ class ChangePassword extends React.Component {
       });
       var config = {
         method: "put",
-        url: "http://45.77.12.16:4000/account/changepassword",
+        url: "https://45.77.12.16:4000/account/changepassword",
         headers: {
           "auth-token": localStorage.getItem("auth-token"),
           "Content-Type": "application/x-www-form-urlencoded",
